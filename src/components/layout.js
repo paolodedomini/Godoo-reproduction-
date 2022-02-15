@@ -8,7 +8,7 @@
 import * as React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
-
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import Header from "./header"
 import "./layout.css"
 
@@ -20,9 +20,13 @@ const Layout = ({ children }) => {
           title
         }
       }
+    
+
     }
   `)
 
+
+  //const imageTest = getImage(data.odoo.allProductTemplates.productVariantIds.productVariantImageIds.image1920_sharp)
   return (
     <>
       <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
@@ -33,6 +37,9 @@ const Layout = ({ children }) => {
           padding: `0 1.0875rem 1.45rem`,
         }}
       >
+
+    {/* <GatsbyImage image={imageTest} alt="test" /> */}
+        <div>categorie</div>
         <main>{children}</main>
         <footer
           style={{

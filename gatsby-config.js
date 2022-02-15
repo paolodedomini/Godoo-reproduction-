@@ -8,6 +8,29 @@ module.exports = {
   plugins: [
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-image`,
+    `gatsby-plugin-sass`,
+         {  
+        resolve: "gatsby-source-graphql",
+        options: {
+          // Arbitrary name for the remote schema Query type
+          typeName: "ODOO",
+          // Field under which the remote schema will be accessible. You'll use this in your Gatsby query
+          fieldName: "odoo",
+          // Url to query from
+          url: "https://store.monema.cloud/graphql/demo",
+          },
+        }, 
+        {
+          resolve: `gatsby-graphql-sharp`,
+          options: {
+            image_url_fields: [
+              //your graphql schema hierarchy
+              'ODOO.allProductTemplates.productVariantId.image',
+            ],
+          
+            debug_mode: true, //optional, default is false
+          },
+        }, 
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -36,3 +59,5 @@ module.exports = {
     // `gatsby-plugin-offline`,
   ],
 }
+
+
