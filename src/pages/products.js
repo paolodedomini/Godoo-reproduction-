@@ -31,7 +31,9 @@ const Products = () => {
           id
           childId {
             name
+            id
             childId {
+              id
               name
             }
           }
@@ -43,18 +45,18 @@ const Products = () => {
   const dataProdotti = data.odoo.allProductTemplates
   const categorieProdotti = data.odoo.allCategories
 
-  const [mainCat, setMainCat] = React.useState("")
-  const [categoria, setCategoria] = React.useState("")
+  const [alberaturaCategoria, setAlberaturaCategoria] = React.useState({})
 
   return (
     <Layout>
       <main className="page-products">
         <FiltriProdotto
-          setCategoriaPrincipale={setMainCat}
-          setCategoria={setCategoria}
+      
+          alberaturaCategoria={alberaturaCategoria}
+          setAlberaturaCategoria={setAlberaturaCategoria}
           categorie={categorieProdotti}
         />
-        <GrigliaProdotti categoria={categoria} categoriaPrincipale={mainCat} prodotti={dataProdotti} />
+       <GrigliaProdotti alberaturaCategoria={alberaturaCategoria}  prodotti={dataProdotti} />
       </main>
     </Layout>
   )
