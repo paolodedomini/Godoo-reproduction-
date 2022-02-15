@@ -10,7 +10,7 @@ const FiltriProdotto = ({ categorie, setCategoria, setCategoriaPrincipale }) => 
 
 
     function clickCategoria(categoriaPrincipale, categoria, id) {
-       
+        console.log(categoria);
         setCategoria(categoria.name)
         setCategoriaPrincipale(categoriaPrincipale)
         setIds(id)

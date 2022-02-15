@@ -25,7 +25,7 @@ module.exports = {
           options: {
             image_url_fields: [
               //your graphql schema hierarchy
-              'ODOO.allProductTemplates.productVariantId.image',
+              'ODOO.allProductTemplates.productVariantId.imageMedium',
             ],
           
             debug_mode: true, //optional, default is false

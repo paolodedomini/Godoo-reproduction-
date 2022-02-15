@@ -1,3 +1,17 @@
-.page-products{
-    display: flex;
+@import './variables';
+
+ul {
+  list-style: none;
+  li {
+    ul {
+      li {
+        font-size: 0.9rem;
+        line-height: 1rem;
+      }
+    }
+  }
+}
+
+.page-products {
+  display: flex;
 }

@@ -15,10 +15,10 @@ const Products = () => {
           name
           productVariantId {
             id
-            image
-            image_sharp {
+            imageMedium
+            imageMedium_sharp {
               childImageSharp {
-                gatsbyImageData(width: 200)
+                gatsbyImageData(width: 500)
               }
             }
           }
