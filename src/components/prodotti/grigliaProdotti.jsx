@@ -1,39 +1,83 @@
 import * as React from "react"
 import { Link, useStaticQuery, graphql } from "gatsby"
 import SingleProduct from "./singleProduct"
+import QuickProduct from "./quickProduct"
+import { motion, AnimatePresence } from "framer-motion"
+import { useEffect, useRef } from "react"
+import { GatsbyImage } from "gatsby-plugin-image"
+const GrigliaProdotti = ({ prodotti, alberaturaCategoria, quick, setQuick }) => {
 
-const GrigliaProdotti = ({ prodotti, alberaturaCategoria }) => {
+
+
+    const ref = useRef()
 
 
     function filtraProdotti(arrayItem, itemCategoria) {
-        const filtered = arrayItem.filter((item) => {
-            console.log(item);
-            return (item.publicCategIds.some((itemSub) => {
-                if(alberaturaCategoria.corrente != 'All'){
-                return (alberaturaCategoria.categoriaPrincipale === item.publicCategIds[0].name && itemSub.name === alberaturaCategoria.corrente
-                )} else {
-                    return ( itemSub.name === alberaturaCategoria.corrente)
-                }
 
+/* mettere una condizione per filtrare in base alla categoria all */
+
+        const filtered = arrayItem.filter((item) => {
+            return (item.publicCategIds.some((itemSub) => {
+                return (itemCategoria.categoriaPrincipale === item.publicCategIds[0].name &&
+                    itemSub.name === itemCategoria.corrente
+                )
             }))
         })
         return filtered
     }
 
 
-    return (
-        <div className="griglia-prodotti">
-            <h1>{alberaturaCategoria.corrente}</h1>
-            {
-                filtraProdotti(prodotti, alberaturaCategoria).map((prodotto) => {
-                    return (
-                        <div key={prodotto.id}>
-                            <SingleProduct prodotto={prodotto} />
-                        </div>
-                    )
-                })
+    useEffect(() => {
+        const checkIfClickedOutside = e => {
+            // If the menu is open and the clicked target is not within the menu,
+            // then close the menu
+            if (quick.open && ref.current && !ref.current.contains(e.target)) {
+                setQuick({ open: false })
             }
-        </div>)
+        }
+
+        document.addEventListener("mousedown", checkIfClickedOutside)
+
+        return () => {
+            // Cleanup the event listener
+            document.removeEventListener("mousedown", checkIfClickedOutside)
+        }
+    }, [quick.open])
+
+    console.log(quick);
+
+    return (
+        <section className="wrapper-prodotti">
+            <div className="categoria-corrente">{alberaturaCategoria.corrente}</div>
+            <div className="griglia-prodotti">
+                {
+                    filtraProdotti(prodotti, alberaturaCategoria).map((prodotto) => {
+                        return (
+                            <div className="box-preview-prodotto" key={prodotto.id}>
+                                <SingleProduct prodotto={prodotto} setQuick={setQuick} />
+                            </div>
+                        )
+                    })
+                }
+            </div>
+            <AnimatePresence>
+
+                {quick.open &&
+
+                    <motion.div
+                        ref={ref}
+                        className="quick-shop"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                    >
+                        <QuickProduct image={quick.immagine} name={quick.name} prezzo={quick.prezzo} />
+                    </motion.div>
+                }
+
+            </AnimatePresence>
+        </section>
+    )
 }
 
 export default GrigliaProdotti

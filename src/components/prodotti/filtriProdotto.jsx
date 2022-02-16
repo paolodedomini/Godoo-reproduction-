@@ -14,36 +14,40 @@ const FiltriProdotto = ({ categorie, alberaturaCategoria, setAlberaturaCategoria
             ...alberaturaCategoria,
             corrente: categoria.name,
             categoriaIntermedia: categoriaIntermedia,
-            categoriaPrincipale: categoriaPrincipale
+            categoriaPrincipale: categoriaPrincipale,
+            idCorrente: id
         })
 
         setIds(id)
     }
-    
+
     return (
         <div className="filtri-prodotto">
             {categorie.map((categoria) => {
 
                 return (
                     <div key={categoria.id} >
-                        <h3>{categoria.name}</h3>
-                        <ul>
-                            {categoria.childId.map((catIntermedia) => {
-                                return (
-                                    <li>
-                                        {catIntermedia.name}
-                                        <ul>
-                                            {catIntermedia.childId.map((item) => {
+                        {(categoria.id === 13 ) &&
+                            <>
+                                <h3>{categoria.name}</h3>
+                                <ul>
+                                    {categoria.childId.map((catIntermedia) => {
+                                        return (
+                                            <li key={catIntermedia.id}>
+                                                {catIntermedia.name}
+                                                <ul>
+                                                    {catIntermedia.childId.map((item) => {
+                                                        return <li key={item.id} onClick={() => clickCategoria(categoria.name, catIntermedia.name, item, item.id,)}>{item.name}</li>
+                                                    })
+                                                    }
+                                                </ul>
+                                            </li>
 
-                                                return <li onClick={() => clickCategoria(categoria.name, catIntermedia.name, item, item.id,)}>{item.name}</li>
-                                            })
-                                            }
-                                        </ul>
-                                    </li>
-
-                                )
-                            })}
-                        </ul>
+                                        )
+                                    })}
+                                </ul>
+                            </>
+                        }
                     </div>
                 )
 
