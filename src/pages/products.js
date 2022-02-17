@@ -10,44 +10,57 @@ const Products = () => {
   const data = useStaticQuery(graphql`
     query Prodotti {
       odoo {
-        allProductTemplates(limit: 10) {
-          id
-          name
-          listPrice
-          defaultCode
-          productVariantIds {
+        products(search: "", pageSize: 50) {
+          products {
             id
-            imageMedium
-            imageMedium_sharp {
+            name
+            image
+            image_sharp {
               childImageSharp {
                 gatsbyImageData(width: 500)
               }
             }
-          }
-          publicCategIds {
-            id
-            name
-          }
-        }
-        allCategories(topCategory: true) {
-          name
-          id
-          childId {
-            name
-            id
-            childId {
+            price
+            sku
+            productVariants {
+              id
+              name
+              image
+              image_sharp {
+                childImageSharp {
+                  gatsbyImageData(width: 500)
+                }
+              }
+            }
+            categories {
               id
               name
             }
           }
         }
+        categories(search: "") {
+          categories {
+            name
+            id
+            childs {
+              name
+              id
+              childs {
+                id
+                name
+              }
+            }
+          }
+
+        }
       }
     }
   `)
 
-  const dataProdotti = data.odoo.allProductTemplates
-  const categorieProdotti = data.odoo.allCategories
+  const dataProdotti = data.odoo.products.products
+  const categorieProdotti = data.odoo.categories.categories
 
+  console.log(dataProdotti)
   const [alberaturaCategoria, setAlberaturaCategoria] = React.useState({})
   const [quick, setQuick] = useState({open:false})
 

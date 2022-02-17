@@ -31,25 +31,25 @@ const FiltriProdotto = ({ categorie, alberaturaCategoria, setAlberaturaCategoria
                             <>
                                 <h3>{categoria.name}</h3>
                                 <ul>
-                                    {categoria.childId.map((catIntermedia) => {
+                                    {categoria.childs ?  categoria.childs.map((catIntermedia) => {
                                         return (
                                             <li key={catIntermedia.id}>
                                                 {catIntermedia.name}
-                                                <ul>
-                                                    {catIntermedia.childId.map((item) => {
+                                                <ul> 
+                                                    {catIntermedia ? catIntermedia.childs.map((item) => {
                                                         return <li key={item.id} onClick={() => clickCategoria(
                                                             categoria.id, 
                                                             catIntermedia.id,
                                                             item, 
                                                             item.id,)}>
                                                                 {item.name}</li>
-                                                    })
+                                                    }) : null
                                                     }
                                                 </ul>
                                             </li>
 
                                         )
-                                    })}
+                                    }) : null}
                                 </ul>
                             </>
                         }

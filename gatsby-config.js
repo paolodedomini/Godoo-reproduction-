@@ -17,7 +17,7 @@ module.exports = {
           // Field under which the remote schema will be accessible. You'll use this in your Gatsby query
           fieldName: "odoo",
           // Url to query from
-          url: "https://store.monema.cloud/graphql/demo",
+          url: "https://store.monema.cloud/graphql/vsf",
           },
         }, 
         {
@@ -25,7 +25,8 @@ module.exports = {
           options: {
             image_url_fields: [
               //your graphql schema hierarchy
-              'ODOO.allProductTemplates.productVariantId.imageMedium',
+              'ODOO.allProducts.products.image',
+              'ODOO.allProducts.products.productVariants.image'
             ],
           
             debug_mode: true, //optional, default is false
