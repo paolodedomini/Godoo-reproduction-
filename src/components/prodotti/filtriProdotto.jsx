@@ -1,6 +1,5 @@
 import * as React from "react"
-import { Link, useStaticQuery, graphql } from "gatsby"
-import { array } from "prop-types"
+
 
 const FiltriProdotto = ({ categorie, alberaturaCategoria, setAlberaturaCategoria, setCategoriaPrincipale }) => {
 

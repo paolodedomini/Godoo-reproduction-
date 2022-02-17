@@ -1,11 +1,10 @@
 import * as React from "react"
-import { Link, useStaticQuery, graphql } from "gatsby"
 import SingleProduct from "./singleProduct"
 import QuickProduct from "./quickProduct"
 import { motion, AnimatePresence } from "framer-motion"
 import { useEffect, useRef } from "react"
-import { GatsbyImage } from "gatsby-plugin-image"
-const GrigliaProdotti = ({ prodotti, alberaturaCategoria, quick, setQuick }) => {
+
+const GrigliaProdotti = ({ prodotti, alberaturaCategoria, quick, setQuick,dataprovider }) => {
 
 
 
@@ -14,7 +13,7 @@ const GrigliaProdotti = ({ prodotti, alberaturaCategoria, quick, setQuick }) => 
 
     function filtraProdotti(arrayItem, itemCategoria) {
         
-//filtra per id i prodotti in "arrayItem"
+// filtra per id i prodotti in "arrayItem"
 
         const filtered = arrayItem.filter((item) => {
             if (item.categories) {
@@ -61,7 +60,7 @@ const GrigliaProdotti = ({ prodotti, alberaturaCategoria, quick, setQuick }) => 
         }
     }, [quick.open])
 
-    console.log(quick);
+  
 
     return (
         <section className="wrapper-prodotti">

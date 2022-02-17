@@ -1,11 +1,12 @@
 import * as React from "react"
-import { Link, useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql } from "gatsby"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import GrigliaProdotti from "../components/prodotti/grigliaProdotti"
 import FiltriProdotto from "../components/prodotti/filtriProdotto"
 import "../assets/scss/general.scss"
-import {useState} from "react"
+import { useState } from "react"
+import { createContext } from "react"
 const Products = () => {
   const data = useStaticQuery(graphql`
     query Prodotti {
@@ -60,24 +61,26 @@ const Products = () => {
   const dataProdotti = data.odoo.products.products
   const categorieProdotti = data.odoo.categories.categories
 
-  console.log(dataProdotti)
+
   const [alberaturaCategoria, setAlberaturaCategoria] = React.useState({})
-  const [quick, setQuick] = useState({open:false})
+  const [quick, setQuick] = useState({ open: false })
 
   return (
     <Layout>
-      <main className="page-products">
-        <FiltriProdotto
-          alberaturaCategoria={alberaturaCategoria}
-          setAlberaturaCategoria={setAlberaturaCategoria}
-          categorie={categorieProdotti}
-        />
-       <GrigliaProdotti 
-       quick={quick} 
-       setQuick={setQuick} 
-       alberaturaCategoria={alberaturaCategoria}  
-       prodotti={dataProdotti} />
-      </main>
+     
+        <main className="page-products">
+          <FiltriProdotto
+            alberaturaCategoria={alberaturaCategoria}
+            setAlberaturaCategoria={setAlberaturaCategoria}
+            categorie={categorieProdotti}
+          />
+          <GrigliaProdotti
+            quick={quick}
+            setQuick={setQuick}
+            alberaturaCategoria={alberaturaCategoria}
+            prodotti={dataProdotti} />
+        </main>
+     
     </Layout>
   )
 }

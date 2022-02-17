@@ -1,5 +1,6 @@
 import * as React from "react"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
+import InputQuantita from "./inputQuantita"
 const QuickProduct = ({ image, name, prezzo }) => {
 
     return (
@@ -18,11 +19,7 @@ const QuickProduct = ({ image, name, prezzo }) => {
                         <span class="checkmark"></span>
                     </label>
                 </div>
-                <div className="wrapper-qta">
-                    <span>-</span>
-                    <input type="number" name="qta" id="qta" />
-                    <span>+</span>
-                </div>
+                <InputQuantita />
                 <button className="add-cart">Add to cart</button>
             </div>
         </>

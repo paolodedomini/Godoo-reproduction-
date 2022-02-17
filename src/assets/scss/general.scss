@@ -29,6 +29,23 @@ h1, h2, h3, .titolo {
     font-family: 'poppins';
 }
 
+header {
+    display: flex;
+    justify-content: space-between;
+
+    .wrapper-button-cart {
+        margin: 1rem;
+        width: 50px;
+        font-size: 1.3rem;
+        background-color: #f6f6f6;
+        padding: 12px;
+        border-radius: 50%;
+        height: 50px;
+        text-align: center;
+        cursor: pointer;
+    }
+}
+
 .main-container {
     max-width: 1620px;
     margin: 0 auto;
@@ -38,16 +55,18 @@ h1, h2, h3, .titolo {
     display: flex;
 
     .categoria-corrente {
-      display: inline-block;
-      border: 1px solid gray;
-      padding: 2px 12px;
-      border-radius: 16px;
-      font-size: 1rem;
-  }
+        display: inline-block;
+        border: 1px solid gray;
+        padding: 2px 12px;
+        border-radius: 16px;
+        font-size: 1rem;
+    }
+
     section.wrapper-prodotti {
-      max-width: 1030px;
-      margin-left: 5%;
-  }
+        max-width: 1020px;
+        margin-left: 5%;
+    }
+
     .griglia-prodotti {
         display: flex;
         flex-wrap: wrap;
@@ -57,7 +76,7 @@ h1, h2, h3, .titolo {
         position: fixed;
         top: 20%;
         background: white;
-        padding: 2rem;
+        padding: 1rem;
         left: 0;
         right: 0;
         margin-left: auto;
@@ -70,10 +89,12 @@ h1, h2, h3, .titolo {
             font-weight: bold;
             font-size: 0.9rem;
             text-align: center;
+            margin-top: 5px;
         }
 
         .prezzo {
             text-align: center;
+            margin-top: 5px;
         }
 
         .gatsby-image-wrapper.gatsby-image-wrapper-constrained {
@@ -88,6 +109,7 @@ h1, h2, h3, .titolo {
         margin: 1rem 1rem 2rem 1rem;
         transition: all ease-in-out 0.3s;
         outline: 0px solid transparent;
+        padding: 1rem;
 
         &:hover {
             outline: 11px solid $ui-gray;
@@ -97,6 +119,7 @@ h1, h2, h3, .titolo {
             font-weight: bold;
             font-size: 0.9rem;
             text-align: center;
+            margin-top: 10px;
         }
 
         .prezzo {
@@ -166,6 +189,11 @@ h1, h2, h3, .titolo {
             vertical-align: bottom;
             margin-left: 10px;
             margin-right: 10px;
+            text-align: center;
+
+            &.disabled {
+                color: $ui-dark-gray;
+            }
         }
 
         span {
@@ -175,6 +203,7 @@ h1, h2, h3, .titolo {
             height: 40px;
             line-height: 36px;
             font-weight: bold;
+            cursor: pointer;
         }
 
         button.add-cart {
@@ -198,21 +227,28 @@ h1, h2, h3, .titolo {
                     border-radius: 50%;
                     background-color: rgb(90, 90, 158);
                     border: 2px solid $ui-dark-gray;
-                    
                 }
-
-
 
                 input {
                     display: none;
 
                     &:checked ~ span.checkmark {
-                         
-                            border: 2px solid $ui-black;
-                        
+                        border: 2px solid $ui-black;
                     }
                 }
             }
         }
     }
+}
+
+
+.wrapper-cart-drawer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    background: white;
+    height: 100%;
+    padding: 1rem;
+    box-shadow: -1px 1px 7px #cbcbcb;
+    width: 260px;
 }
