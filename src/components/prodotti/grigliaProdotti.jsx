@@ -13,17 +13,28 @@ const GrigliaProdotti = ({ prodotti, alberaturaCategoria, quick, setQuick }) => 
 
 
     function filtraProdotti(arrayItem, itemCategoria) {
-
-/* mettere una condizione per filtrare in base alla categoria all */
+        
+//filtra per id i prodotti in "arrayItem"
 
         const filtered = arrayItem.filter((item) => {
             return (item.publicCategIds.some((itemSub) => {
-                return (itemCategoria.categoriaPrincipale === item.publicCategIds[0].name &&
-                    itemSub.name === itemCategoria.corrente
+                return ((itemCategoria.categoriaPrincipale === item.publicCategIds[0].id) &&
+                    (itemSub.id === itemCategoria.idCorrente)
                 )
             }))
         })
-        return filtered
+
+        const filteredAll = arrayItem.filter((item) => {
+            return (item.publicCategIds.some((itemSub) => {
+                return (item.publicCategIds[1] && itemCategoria.idCorrente === item.publicCategIds[1].id
+                )
+            }))
+        })
+        
+        if (itemCategoria.corrente === 'All') {
+            return filteredAll
+        }
+        else { return filtered }
     }
 
 

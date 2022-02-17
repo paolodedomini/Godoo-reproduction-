@@ -37,7 +37,12 @@ const FiltriProdotto = ({ categorie, alberaturaCategoria, setAlberaturaCategoria
                                                 {catIntermedia.name}
                                                 <ul>
                                                     {catIntermedia.childId.map((item) => {
-                                                        return <li key={item.id} onClick={() => clickCategoria(categoria.name, catIntermedia.name, item, item.id,)}>{item.name}</li>
+                                                        return <li key={item.id} onClick={() => clickCategoria(
+                                                            categoria.id, 
+                                                            catIntermedia.id,
+                                                            item, 
+                                                            item.id,)}>
+                                                                {item.name}</li>
                                                     })
                                                     }
                                                 </ul>

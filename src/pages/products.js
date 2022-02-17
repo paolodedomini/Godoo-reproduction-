@@ -25,6 +25,7 @@ const Products = () => {
             }
           }
           publicCategIds {
+            id
             name
           }
         }
