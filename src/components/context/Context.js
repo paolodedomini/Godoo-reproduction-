@@ -1,10 +1,15 @@
-import React, { createContext, useState } from 'react';
-
-const DataContext = createContext();
-
-const Context = ({ children }) => {
+import React, { createContext, useState } from "react"
+const defaultState = {}
+const ShareContext = createContext(defaultState)
+const ShareContextProvider = props => {
   const [openCart, setOpenCart] = useState(false)
-  return <DataContext.Provider value={ 'test' }>{children}</DataContext.Provider>;
-};
 
-export default Context;
+
+  return (
+    <ShareContext.Provider value={{ setOpenCart: setOpenCart, openCart : openCart }}>
+      {props.children}
+    </ShareContext.Provider>
+  )
+}
+
+export { ShareContextProvider, ShareContext }

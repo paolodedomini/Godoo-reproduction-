@@ -10,9 +10,9 @@ import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 import Header from "./header"
 import CartDrawer from "./cart/CartDrawer"
+import { ShareContextProvider } from "./context/Context"
 import { createContext } from "react"
 import "./layout.css"
-
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -22,24 +22,22 @@ const Layout = ({ children }) => {
           title
         }
       }
-    
-
     }
   `)
 
-  const DataContext = createContext()
+  const DataContext = createContext({ test: "pippo" })
   return (
     <>
-      <DataContext.Provider value={{ test: 'test' }}>
+      <ShareContextProvider>
         <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
         <div className="main-container">
           {children}
           <footer>
             <a href="https://www.gatsbyjs.com">Gatsby</a>
           </footer>
-          {/*       <CartDrawer setOpenCart={dataFromContext.setOpenCart} openCart={dataFromContext.openCart}/>*/}
+          <CartDrawer/>
         </div>
-      </DataContext.Provider>
+      </ShareContextProvider>
     </>
   )
 }

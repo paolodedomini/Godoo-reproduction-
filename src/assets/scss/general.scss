@@ -84,6 +84,7 @@ header {
         width: 380px;
         box-shadow: 11px 11px 1px #0000001c;
         border: 6px solid $ui-gray;
+        
 
         .titolo {
             font-weight: bold;
@@ -145,6 +146,7 @@ header {
                     padding: 6px 0;
                     font-size: .8rem;
                     font-weight: bold;
+                    cursor: pointer;
                 }
             }
         }
