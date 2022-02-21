@@ -6,12 +6,14 @@ const ShareContext = createContext(defaultState)
 const ShareContextProvider = props => {
   const [openCart, setOpenCart] = useState(false)
   const [dataCart, setDataCart] = useState()
-
+  const [idVariante, setIdVariante] = useState()
 const data = {
-  setOpenCart: setOpenCart, 
+  setOpenCart : setOpenCart, 
   openCart : openCart,
   dataCart : dataCart,
-  setDataCart: setDataCart
+  setDataCart : setDataCart,
+  idVariante : idVariante,
+  setIdVariante : setIdVariante
 }
 
   return (

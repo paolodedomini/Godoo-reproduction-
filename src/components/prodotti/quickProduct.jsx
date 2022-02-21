@@ -1,14 +1,16 @@
 import * as React from "react"
+
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import InputQuantita from "./inputQuantita"
 import { ShareContext } from "../context/Context"
-
+import VarianteColore from "./varianteColore"
 const QuickProduct = ({ image, name, prezzo, id, varianti }) => {
 
     const [quantita, setQuantita] = React.useState(0)
+
     const dataCart = React.useContext(ShareContext)
     const imageVariante = getImage(image)
-    function getDataCart(name, prezzo, id, image, quantita) {
+    function getDataCart(name, prezzo, id, quantita) {
         dataCart.setDataCart({
             ...dataCart.dataCart,
             name: name,
@@ -24,10 +26,14 @@ const QuickProduct = ({ image, name, prezzo, id, varianti }) => {
             <GatsbyImage placeholder="blurred" image={imageVariante} alt="test" />
             <div className="titolo">{name}</div>
             <div className="prezzo">{prezzo}€</div>
+            <VarianteColore idVariante={dataCart.idVariante} setIdVariante={dataCart.setIdVariante} varianti={varianti} />
             <div className="add-to-cart">
-                <InputQuantita quantita={quantita} setQuantita={setQuantita} />
-                <button className="add-cart" onClick={() => getDataCart(name, prezzo, id, image, quantita)}>
-                    Add to cart</button>
+                <InputQuantita  quantita={quantita} setQuantita={setQuantita} />
+                <button
+                    className="add-cart"
+                    onClick={() => getDataCart(name, prezzo, id, image, quantita)}>
+                    Add to cart
+                </button>
             </div>
         </>
     )

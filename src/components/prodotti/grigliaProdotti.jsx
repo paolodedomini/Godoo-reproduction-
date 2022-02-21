@@ -2,18 +2,20 @@ import * as React from "react"
 import SingleProduct from "./singleProduct"
 import QuickProduct from "./quickProduct"
 import { motion, AnimatePresence } from "framer-motion"
-import { useEffect, useRef } from "react"
-import SliderQuickProducts from "./sliderQuickProducts"
+import { useEffect, useRef, useContext } from "react"
+import { ShareContext } from "../context/Context"
+
 const GrigliaProdotti = ({ prodotti, alberaturaCategoria, quick, setQuick }) => {
 
 
 
     const ref = useRef()
 
+    const dataCart = useContext(ShareContext)
 
     function filtraProdotti(arrayItem, itemCategoria) {
-        
-// filtra per id i prodotti in "arrayItem"
+
+        // filtra per id i prodotti in "arrayItem"
 
         const filtered = arrayItem.filter((item) => {
             if (item.categories) {
@@ -35,7 +37,7 @@ const GrigliaProdotti = ({ prodotti, alberaturaCategoria, quick, setQuick }) => 
             }
 
         })
-        
+
         if (itemCategoria.corrente === 'All') {
             return filteredAll
         }
@@ -60,7 +62,7 @@ const GrigliaProdotti = ({ prodotti, alberaturaCategoria, quick, setQuick }) => 
         }
     }, [quick.open])
 
-  
+
 
     return (
         <section className="wrapper-prodotti">
@@ -84,19 +86,23 @@ const GrigliaProdotti = ({ prodotti, alberaturaCategoria, quick, setQuick }) => 
                         className="quick-shop"
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }} 
-                        >
-                        <QuickProduct 
-                        varianti={quick.varianti} 
-                        image={quick.varianti[0].image_sharp} 
-                        name={quick.varianti[0].name} 
-                        prezzo={quick.varianti[0].price} 
-                        id={quick.varianti[0].id}/>
+                        exit={{ opacity: 0 }}
+                    >
+                        <section className="slider-quick">
+                       
+                            <QuickProduct
+                                    image={quick.varianti[0].image_sharp}
+                                    name={quick.varianti[0].name}
+                                    prezzo={quick.varianti[0].price}
+                                    id={quick.varianti[0].id}
+                                    varianti = {quick.varianti}
+                                    />
+                        </section> 
                     </motion.div>
                 }
 
             </AnimatePresence>
-            <SliderQuickProducts varianti={quick.varianti}/>
+           
         </section>
     )
 }

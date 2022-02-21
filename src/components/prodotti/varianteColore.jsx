@@ -1,19 +1,25 @@
 
 import * as React from "react"
+import { useState } from "react";
+
+const VarianteColore = ({ varianti }) => {
 
 
-const VarianteColore = ()=>{
-    return(
+
+    return (
         <div className="wrapper-varianti">
-        <label htmlFor="variante1">
-            <input type="radio" name="varianti" id="variante1" />
-            <span className="checkmark"></span>
-        </label>
-        <label htmlFor="variante2">
-            <input type="radio" name="varianti" id="variante2" />
-            <span className="checkmark"></span>
-        </label>
-    </div>
+            {varianti.map((item) => {
+                return (
+                    <label htmlFor={item.id}>
+                        <input type="radio" name="varianti" id={item.id} />
+                        <span className="checkmark"></span>
+                    </label>
+                )
+
+            })}
+
+
+        </div>
     )
 }
 export default VarianteColore
