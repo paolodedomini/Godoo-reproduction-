@@ -5,14 +5,20 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 const SingleProduct = ({ prodotto, setQuick }) => {
 
-    const image = getImage(prodotto.productVariants[0].image_sharp)
+    const image = getImage(prodotto.image_sharp)
 
 
     return (
         <>
             <div className="wrapper-img">
                 <GatsbyImage image={image} alt='test' />
-                <div  onClick={() => setQuick({open: true, name: prodotto.name, prezzo:prodotto.price, immagine: image})}  className="quick-shop-button">
+                <div  onClick={() => setQuick({
+                    open: true, 
+                    name: prodotto.name, 
+                    prezzo:prodotto.price, 
+                    immagine: image, 
+                    id:prodotto.id,
+                    varianti: prodotto.productVariants})}  className="quick-shop-button">
                     <span>Quick Shop</span>
                 </div>
             </div>

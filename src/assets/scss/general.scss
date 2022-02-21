@@ -113,7 +113,7 @@ header {
         padding: 1rem;
 
         &:hover {
-            outline: 11px solid $ui-gray;
+            outline: 9px solid $ui-gray;
         }
 
         .titolo {
@@ -213,6 +213,7 @@ header {
             margin-top: 1rem;
             width: 100%;
             padding: 0.6rem;
+            cursor: pointer;
         }
 
         .wrapper-varianti {
@@ -252,5 +253,19 @@ header {
     height: 100%;
     padding: 1rem;
     box-shadow: -1px 1px 7px #cbcbcb;
-    width: 260px;
+    width: 340px;
+    .info-cart{
+        display: flex;
+        margin-bottom: 1rem;
+        .gatsby-image-wrapper-constrained{
+            max-width: 100px;
+        }
+        .cart-name{
+            font-size: 14px;
+            font-weight:  bold;
+            line-height: 20px;
+            margin-top: 5px;
+        }
+    }
 }
+

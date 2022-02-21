@@ -6,7 +6,7 @@ import GrigliaProdotti from "../components/prodotti/grigliaProdotti"
 import FiltriProdotto from "../components/prodotti/filtriProdotto"
 import "../assets/scss/general.scss"
 import { useState } from "react"
-import { createContext } from "react"
+
 const Products = () => {
   const data = useStaticQuery(graphql`
     query Prodotti {

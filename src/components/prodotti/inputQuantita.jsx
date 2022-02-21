@@ -19,7 +19,7 @@ const InputQuantita = () => {
     return (
         <div className="wrapper-qta">
             <span onClick={() => sub(1)}>-</span>
-            <input className={`${quantita === 0 ? 'disabled' : ''}`} type="number" name="qta" id="qta" value={quantita} />
+            <input className={`${quantita === 0 ? 'disabled' : ''}`} type="number" name="qta" id="qta" defaultValue={quantita} />
             <span onClick={() => add(1)}>+</span>
         </div>
     )

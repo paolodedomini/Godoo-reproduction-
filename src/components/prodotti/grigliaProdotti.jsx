@@ -4,7 +4,7 @@ import QuickProduct from "./quickProduct"
 import { motion, AnimatePresence } from "framer-motion"
 import { useEffect, useRef } from "react"
 
-const GrigliaProdotti = ({ prodotti, alberaturaCategoria, quick, setQuick,dataprovider }) => {
+const GrigliaProdotti = ({ prodotti, alberaturaCategoria, quick, setQuick }) => {
 
 
 
@@ -87,7 +87,7 @@ const GrigliaProdotti = ({ prodotti, alberaturaCategoria, quick, setQuick,datapr
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
                     >
-                        <QuickProduct image={quick.immagine} name={quick.name} prezzo={quick.prezzo} />
+                        <QuickProduct image={quick.immagine} name={quick.name} prezzo={quick.prezzo} id={quick.id}/>
                     </motion.div>
                 }
 

@@ -25,7 +25,6 @@ const Layout = ({ children }) => {
     }
   `)
 
-  const DataContext = createContext({ test: "pippo" })
   return (
     <>
       <ShareContextProvider>
