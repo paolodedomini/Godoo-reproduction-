@@ -3,7 +3,7 @@ import SingleProduct from "./singleProduct"
 import QuickProduct from "./quickProduct"
 import { motion, AnimatePresence } from "framer-motion"
 import { useEffect, useRef } from "react"
-
+import SliderQuickProducts from "./sliderQuickProducts"
 const GrigliaProdotti = ({ prodotti, alberaturaCategoria, quick, setQuick }) => {
 
 
@@ -79,19 +79,24 @@ const GrigliaProdotti = ({ prodotti, alberaturaCategoria, quick, setQuick }) => 
             <AnimatePresence>
 
                 {quick.open &&
-
                     <motion.div
                         ref={ref}
                         className="quick-shop"
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                    >
-                        <QuickProduct image={quick.immagine} name={quick.name} prezzo={quick.prezzo} id={quick.id}/>
+                        exit={{ opacity: 0 }} 
+                        >
+                        <QuickProduct 
+                        varianti={quick.varianti} 
+                        image={quick.varianti[0].image_sharp} 
+                        name={quick.varianti[0].name} 
+                        prezzo={quick.varianti[0].price} 
+                        id={quick.varianti[0].id}/>
                     </motion.div>
                 }
 
             </AnimatePresence>
+            <SliderQuickProducts varianti={quick.varianti}/>
         </section>
     )
 }

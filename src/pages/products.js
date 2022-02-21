@@ -27,6 +27,7 @@ const Products = () => {
               id
               name
               image
+              price
               image_sharp {
                 childImageSharp {
                   gatsbyImageData(width: 500)

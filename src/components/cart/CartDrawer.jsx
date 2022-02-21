@@ -15,8 +15,6 @@ const CartDrawer = () => {
         }
     }, [dataContext.dataCart])
 
-
-
     return (
         <>
             <AnimatePresence>

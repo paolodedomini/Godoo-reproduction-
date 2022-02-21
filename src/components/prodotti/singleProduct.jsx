@@ -12,20 +12,24 @@ const SingleProduct = ({ prodotto, setQuick }) => {
         <>
             <div className="wrapper-img">
                 <GatsbyImage image={image} alt='test' />
-                <div  onClick={() => setQuick({
-                    open: true, 
-                    name: prodotto.name, 
-                    prezzo:prodotto.price, 
-                    immagine: image, 
-                    id:prodotto.id,
-                    varianti: prodotto.productVariants})}  className="quick-shop-button">
+                <div onClick={() => setQuick({
+                    open: true,
+                    name: prodotto.name,
+                    prezzo: prodotto.price,
+                    immagine: image,
+                    id: prodotto.id,
+                    varianti: prodotto.productVariants
+                })}
+                    className="quick-shop-button">
+
                     <span>Quick Shop</span>
+
                 </div>
             </div>
 
             <div className="titolo">{prodotto.name}</div>
             <div className="prezzo">{prodotto.price}€</div>
-            
+
         </>)
 }
 
