@@ -1,5 +1,4 @@
 import * as React from "react"
-import { useState } from "react"
 const InputQuantita = ({ quantita, setQuantita }) => {
 
     function add(qta) {
@@ -16,7 +15,7 @@ const InputQuantita = ({ quantita, setQuantita }) => {
     return (
         <div className="wrapper-qta">
             <span onClick={() => sub(1)}>-</span>
-            <input className={`${quantita === 0 ? 'disabled' : ''}`} type="number" name="qta" id="qta" defaultValue={1} value={quantita} />
+            <input className={`${quantita === 0 ? 'disabled' : ''}`} type="number" name="qta" id="qta" defaultValue="0" value={quantita} readOnly />
             <span onClick={() => add(1)}>+</span>
         </div>
     )

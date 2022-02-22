@@ -1,17 +1,18 @@
 import * as React from "react"
 import SingleProduct from "./singleProduct"
 import QuickProduct from "./quickProduct"
-import { motion, AnimatePresence } from "framer-motion"
+import { motion, AnimatePresence, AnimateSharedLayout } from "framer-motion"
+
 import { useEffect, useRef, useContext } from "react"
 import { ShareContext } from "../context/Context"
 
 const GrigliaProdotti = ({ prodotti, alberaturaCategoria, quick, setQuick }) => {
 
-
-
     const ref = useRef()
-
     const dataCart = useContext(ShareContext)
+
+
+
 
     function filtraProdotti(arrayItem, itemCategoria) {
 
@@ -44,6 +45,7 @@ const GrigliaProdotti = ({ prodotti, alberaturaCategoria, quick, setQuick }) => 
         else { return filtered }
     }
 
+    // Funzioni per gestire la chiusura del quickShop
 
     useEffect(() => {
         const checkIfClickedOutside = e => {
@@ -64,6 +66,7 @@ const GrigliaProdotti = ({ prodotti, alberaturaCategoria, quick, setQuick }) => 
 
 
 
+
     return (
         <section className="wrapper-prodotti">
             <div className="categoria-corrente">{alberaturaCategoria.corrente}</div>
@@ -78,8 +81,8 @@ const GrigliaProdotti = ({ prodotti, alberaturaCategoria, quick, setQuick }) => 
                     })
                 }
             </div>
-            <AnimatePresence>
 
+            <AnimatePresence>
                 {quick.open &&
                     <motion.div
                         ref={ref}
@@ -89,21 +92,34 @@ const GrigliaProdotti = ({ prodotti, alberaturaCategoria, quick, setQuick }) => 
                         exit={{ opacity: 0 }}
                     >
                         <section className="slider-quick">
-                       
-                            <QuickProduct
-                                    image={quick.varianti[0].image_sharp}
-                                    name={quick.varianti[0].name}
-                                    prezzo={quick.varianti[0].price}
-                                    id={quick.varianti[0].id}
-                                    varianti = {quick.varianti}
-                                    />
-                        </section> 
+
+                            <motion.div
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                exit={{ opacity: 0 }}
+                            >
+
+                                <QuickProduct
+                                    image={quick.varianti[dataCart.idVariante].image_sharp}
+                                    name={quick.varianti[dataCart.idVariante].name}
+                                    prezzo={quick.varianti[dataCart.idVariante].price}
+                                    id={quick.varianti[dataCart.idVariante].id}
+                                    varianti={quick.varianti}
+                                    setQuick={setQuick}
+                                />
+                            </motion.div>
+            
+                        </section>
                     </motion.div>
                 }
 
             </AnimatePresence>
-           
-        </section>
+            {quick.open &&
+                        <div className="background-transparent">
+                            suca
+                        </div>
+                    } 
+                 </section>
     )
 }
 
