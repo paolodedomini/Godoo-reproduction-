@@ -18,16 +18,14 @@ const CartButton = ({ dataCart }) => {
 
     return (
         <>
-
-
             <div onClick={() => dataContext.setOpenCart(true)} className="wrapper-button-cart" >
                 <AnimatePresence>
                    { animation && <motion.div layout
                         className="icon-cart-wrapper"
                         initial={{ position: 'absolute', opacity: 0, left: -200 }}
                         animate={{ position: 'absolute', opacity: 1, left: '25%' }}
-                        exit={{ position: 'absolute', opacity: 1, left: -200 }}
-                        transition={{ duration: 1 }}
+                        exit={{ position: 'absolute', opacity: 0, left: -200 }}
+                        transition={{ duration: 0.7 }}
                     >
                         <BsCartFill />
                         {(dataCart.quantita > 0) &&
@@ -42,10 +40,7 @@ const CartButton = ({ dataCart }) => {
 
                     </motion.div>}
                 </AnimatePresence>
-
             </div>
-
-
         </>
     )
 }
