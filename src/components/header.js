@@ -8,7 +8,7 @@ import { AnimateSharedLayout } from "framer-motion"
 const Header = (props, { siteTitle }) => {
 
   const dataContext = useContext(ShareContext)
-console.log(dataContext,'test');
+
   return (
     <header>
       <div>

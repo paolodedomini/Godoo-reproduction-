@@ -62,7 +62,6 @@ const Products = () => {
   const dataProdotti = data.odoo.products.products
   const categorieProdotti = data.odoo.categories.categories
 
-
   const [alberaturaCategoria, setAlberaturaCategoria] = React.useState({})
   const [quick, setQuick] = useState({ open: false })
 

@@ -4,7 +4,7 @@ import { ShareContext } from "../context/Context";
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
 const CartButton = ({ dataCart }) => {
-    console.log();
+ 
     const [animation, setAnimation] = useState(false)
 
     useEffect(() => {

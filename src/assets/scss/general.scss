@@ -1,23 +1,6 @@
 @import "./variables";
 
-/* Chrome, Safari, Edge, Opera */
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-}
 
-/* Firefox */
-input[type="number"] {
-    -moz-appearance: textfield;
-}
-
-h1,
-h2,
-h3,
-.titolo {
-    font-family: "poppins";
-}
 
 header {
     display: flex;
@@ -205,56 +188,7 @@ header {
         }
     }
 
-    .add-to-cart {
-        text-align: center;
-        margin-top: 1rem;
 
-        input {
-            width: 50px;
-            height: 40px;
-            border-radius: 0;
-            outline: 0;
-            border: 0;
-            background: $ui-gray;
-            display: inline-block;
-            border: 1px solid $ui-gray;
-            vertical-align: bottom;
-            margin-left: 10px;
-            margin-right: 10px;
-            text-align: center;
-            font-weight: bold;
-
-            &.disabled {
-                color: $ui-light-gray;
-            }
-        }
-
-        span {
-            display: inline-block;
-            border: 1px solid $ui-gray;
-            width: 40px;
-            height: 40px;
-            line-height: 36px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        button.add-cart {
-            border: none;
-            margin-top: 1rem;
-            width: 100%;
-            padding: 0.6rem;
-            cursor: pointer;
-            background-color: $ui-dark-gray;
-            color: white;
-
-            &[disabled] {
-                background-color: $ui-light-gray;
-                color: $ui-dark-gray;
-                pointer-events: none;
-            }
-        }
-    }
 
     .wrapper-varianti {
         margin: 1rem 0;
