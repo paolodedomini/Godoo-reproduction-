@@ -11,9 +11,6 @@ const GrigliaProdotti = ({ prodotti, alberaturaCategoria, quick, setQuick }) => 
     const ref = useRef()
     const dataCart = useContext(ShareContext)
 
-
-
-
     function filtraProdotti(arrayItem, itemCategoria) {
 
         // filtra per id i prodotti in "arrayItem"
@@ -108,18 +105,18 @@ const GrigliaProdotti = ({ prodotti, alberaturaCategoria, quick, setQuick }) => 
                                     setQuick={setQuick}
                                 />
                             </motion.div>
-            
+
                         </section>
                     </motion.div>
                 }
 
             </AnimatePresence>
             {quick.open &&
-                        <div className="background-transparent">
-                            suca
-                        </div>
-                    } 
-                 </section>
+                <div className="background-transparent">
+                    suca
+                </div>
+            }
+        </section>
     )
 }
 

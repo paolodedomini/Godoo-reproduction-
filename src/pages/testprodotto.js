@@ -1,12 +1,12 @@
 import React from "react"
 import { graphql } from "gatsby"
-import SchedaProdotto from "../components/schedaProdotto/schedaProdotto"
+import SchedaSingleProduct from "../components/schedaProdotto/schedaSingleProduct"
 import Layout from "../components/layout"
 const TestProdotto = ({ data }) => {
     const dataTest = data.odoo.products.products[30]
     return (
         <Layout>
-            <SchedaProdotto data={dataTest} />
+            <SchedaSingleProduct data={dataTest} />
         </Layout>
 
     )

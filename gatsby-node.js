@@ -1,39 +1,84 @@
-exports.createPages = async ({ actions }) => {
+const path = require(`path`)
+const { slash } = require(`gatsby-core-utils`)
+
+exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions
-  createPage({
-    path: "/using-dsg",
-    component: require.resolve("./src/templates/using-dsg.js"),
-    context: {},
-    defer: true,
-  })
-}
-/* const fetch = require('node-fetch');
-const NODE_TYPE = 'prodotti'
-exports.sourceNodes = async ({actions, createNodeId, createContentDigest}) =>{
-  const {createNode} = actions 
-  const response = await fetch('https://fakestoreapi.com/products')
-  const json = await response.json()
-  const products = json
 
-
-  products.forEach((node, index)=>{
-    createNode({
-      ...node,
-      id: createNodeId(`${NODE_TYPE}-${node.id}}`),
-      parent: null,
-      children: [],
-      internal:{
-        type: NODE_TYPE,
-        content: JSON.stringify(node),
-        contentDigest: createContentDigest(node)
+  const data = await graphql(`
+    {
+    odoo {
+      products(search: "", pageSize: 50) {
+        products {
+          id
+          name
+          image
+          image_sharp {
+            childImageSharp {
+              gatsbyImageData(width: 500)
+            }
+          }
+          price
+          sku
+          productVariants {
+            id
+            name
+            image
+            price
+            attributeValues {
+              htmlColor
+            }
+            image_sharp {
+              childImageSharp {
+                gatsbyImageData(width: 500)
+              }
+            }
+          }
+          categories {
+            id
+            name
+          }
+        }
       }
-  
+      categories(search: "") {
+        categories {
+          name
+          id
+          childs {
+            name
+            id
+            childs {
+              id
+              name
+            }
+          }
+        }
+
+      }
+    }
+  }
+  `)
+
+
+
+  const schedaProdotto = path.resolve(`./src/templates/schedaProdotto.jsx`)
+
+  var slugify = require('slugify')
+
+  data.data.odoo.products.products.forEach(scheda => {
+    const schedatitle = slugify(scheda.name, {
+      replacement: '_',  // replace spaces with replacement character, defaults to `-`
+      remove: /[*+~.()'"!:@?]/g, // remove characters that match regex, defaults to `undefined`
+    }) 
+    createPage({
+      // will be the url for the page
+      path: 'schede/'+schedatitle,
+      // specify the component template of your choice
+      component: slash(schedaProdotto),
+      // In the ^template's GraphQL query, 'id' will be available
+      // as a GraphQL variable to query for this post's data.
+      context: {
+        data: scheda,
+      },
     })
-
   })
-  return
 }
-
-
-
- */

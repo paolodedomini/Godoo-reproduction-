@@ -10,7 +10,7 @@ const QuickProduct = ({ image, name, prezzo, id, varianti, setQuick }) => {
 
     const dataCart = React.useContext(ShareContext)
     const imageVariante = getImage(image)
-
+    const [quantita, setQuantita] = React.useState(0)
     function getDataCart(name, prezzo, id) {
         dataCart.setDataCart({
             ...dataCart.dataCart,
@@ -18,7 +18,7 @@ const QuickProduct = ({ image, name, prezzo, id, varianti, setQuick }) => {
             prezzo: prezzo,
             id: id,
             image: imageVariante,
-            quantita: dataCart.quantita,
+            quantita:quantita,
         })
     }
 
@@ -29,12 +29,12 @@ const QuickProduct = ({ image, name, prezzo, id, varianti, setQuick }) => {
             <div className="prezzo">{prezzo}€</div>
             <VarianteColore idVariante={dataCart.idVariante} setIdVariante={dataCart.setIdVariante} varianti={varianti} />
 
-            <InputQuantita quantita={dataCart.quantita} setQuantita={dataCart.setQuantita} />
+            <InputQuantita quantita={quantita} setQuantita={setQuantita} />
             <button
-                disabled={dataCart.quantita === 0 ? true : false}
+                disabled={quantita === 0 ? true : false}
                 className="add-cart"
                 onClick={() => {
-                    getDataCart(name, prezzo, id, dataCart.quantita)
+                    getDataCart(name, prezzo, id)
                     setQuick(false)
                 }}>
                 Add to cart
