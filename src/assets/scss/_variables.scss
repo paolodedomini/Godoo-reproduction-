@@ -25,6 +25,11 @@ $ui-black: #181717;
 
 
 *{box-sizing: border-box;}
+
+html{
+    font-size: 16px;
+}
+
 body {
     font-size: 100%;
     font-family: $text;
@@ -75,7 +80,7 @@ button.add-cart {
 
 .add-to-cart {
     text-align: center;
-    margin-top: 1rem;
+    margin-top: 0rem;
 
     input {
         width: 50px;

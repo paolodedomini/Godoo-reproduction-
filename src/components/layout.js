@@ -11,7 +11,7 @@ import { useStaticQuery, graphql } from "gatsby"
 import Header from "./header"
 import CartDrawer from "./cart/CartDrawer"
 import { ShareContextProvider } from "./context/Context"
-import { createContext } from "react"
+
 import "./layout.css"
 
 const Layout = ({ children }) => {

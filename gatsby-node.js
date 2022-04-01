@@ -17,6 +17,12 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
               gatsbyImageData(width: 500)
             }
           }
+          attributeValues {
+            htmlColor
+            id
+            name
+            attributeId
+          }
           price
           sku
           productVariants {
@@ -26,6 +32,9 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
             price
             attributeValues {
               htmlColor
+              id
+              name
+              attributeId
             }
             image_sharp {
               childImageSharp {

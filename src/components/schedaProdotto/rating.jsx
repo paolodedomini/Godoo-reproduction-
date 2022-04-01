@@ -11,21 +11,29 @@ function Rating() {
         for (let i = 0; i < numeroStelle; i++) {
             arr.push('x')
         }
- 
+
         return arr
     }
 
 
     return (
-        <div className='box-rating-star'>
-            {
-                stars(5).map((item, index) => {
-                    return (index > rate) ? 
-                    <BsStar onClick={()=>{setRate(index)}}/> : 
-                    <BsFillStarFill onClick={()=>{setRate(index)}} />
-                
-                })
-            }
+
+        <div className="rating">
+            <div className="star-rating">
+                <span>Rating</span>
+                <div className="wrap-stars">
+                    <div className='box-rating-star'>
+                        {
+                            stars(5).map((item, index) => {
+                                return (index > rate) ?
+                                    <BsStar onClick={() => { setRate(index) }} /> :
+                                    <BsFillStarFill onClick={() => { setRate(index) }} />
+
+                            })
+                        }
+                    </div>
+                </div>
+            </div>
         </div>
     )
 }

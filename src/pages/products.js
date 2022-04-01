@@ -23,6 +23,12 @@ const Products = () => {
             }
             price
             sku
+            attributeValues {
+              attributeId
+              id
+              name
+              htmlColor
+            }
             productVariants {
               id
               name
