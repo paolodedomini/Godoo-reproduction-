@@ -15,31 +15,11 @@ function SchedaSingleProduct({ data }) {
     const [quantita, setQuantita] = React.useState(0)
     const [datiSelezionati, setDatiSelezionati] = React.useState({})
 
-    const categoriaCorrenteProdotto = data.categories[data.categories.length - 1]
+    const categoriaCorrenteProdotto = data.categories && data.categories[data.categories.length - 1]
+    const arrayMateriali = data.attributeValues.filter((item) => item.attributeName === 'Material')
 
 
-   // console.log(data.attributeValues, 'datiprodotto');
-    
-    const arrayAttributiPerTipo = Object.keys(dataCart.attributiPerTipo).map(
-        (item) => (dataCart.attributiPerTipo[item])
-    )
-    // console.log(arrayAttributiPerTipo, 'attributi');
-
-    function arrayAttributoConNome() {
-        let arrayResult = []
-        arrayAttributiPerTipo.forEach((itemTipo) => {
-            data.attributeValues.forEach((item) => {
-                if (item.attributeId === itemTipo.idAttributo) {
-                    const newOne = { ...item, nomeAttributo: itemTipo.nomeAttributo }
-                    arrayResult.push(newOne)
-                }
-            })
-        })
-        return arrayResult
-    }
-
-    const arrayAttributiFiltrati = arrayAttributoConNome();
-   // console.log(arrayAttributiFiltrati);
+    // console.log(arrayAttributiFiltrati);
     return (
         <div className="wrapper-scheda">
             <div className="box-image animated fadeIn">
@@ -47,25 +27,34 @@ function SchedaSingleProduct({ data }) {
             </div>
             <div className="data-box animated fadeInDown">
                 <div className="title">{data.name}</div>
-                {data.description && <div className="description">{data.description}</div>}
-                <div className="sku">{data.sku}</div>
                 <div className="price">
                     €{data.price}
                 </div>
-
                 <Rating />
-
-                <div className="description"></div>
+                <div className="description">Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                    Assumenda animi dignissimos consequatur atque iste nisi tempora deserunt commodi
+                    </div>
+                {/* {data.description && <div className="description">{data.description}</div>} */}
+                
+               
+                {arrayMateriali && 
+                <div className="materiali">
+                    <span>Materiali:</span>
+                    <ul>
+                        {arrayMateriali.map((item) => <li>{item.name}</li>)}
+                    </ul>
+                </div>}
                 <div className="specifiche">
                     <ul>
-                        <li>Categoria: {categoriaCorrenteProdotto.name}</li>
+                        {categoriaCorrenteProdotto && <li>Categoria: {categoriaCorrenteProdotto.name}</li>}
                         {data.sku && <li>  SKU: {categoriaCorrenteProdotto.name}</li>}
                     </ul>
                 </div>
-                <SizeColor arrayAttributiFiltrati={arrayAttributiFiltrati} colori={dataCart.colori} taglie={dataCart.taglie} />
 
+                <SizeColor arrayAttributiFiltrati={data.attributeValues} colori={dataCart.colori} taglie={dataCart.taglie} />
+              
+                {data.sku && <div className="sku">{data.sku}</div>}
                 <div className="quantity">
-                    <span>Quantita</span>
                     <InputQuantita quantita={quantita} setQuantita={setQuantita} />
                 </div>
 

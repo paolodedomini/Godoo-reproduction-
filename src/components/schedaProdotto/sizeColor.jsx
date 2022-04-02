@@ -2,32 +2,49 @@ import React, { useState } from 'react'
 
 
 function SizeColor({ taglie, colori, arrayAttributiFiltrati }) {
+    
+    const arrayColori = arrayAttributiFiltrati.filter((item) => item.attributeName === 'Color')
+    
+    const [ElementoSize, setElementoSize] = useState('36')
+    const [ElementoColore, setElementoColore] = useState(arrayColori[0].htmlColor)
+    const [tooltip, setTooltip] = useState(null)
 
-    const [ElementoSize, setElementoSize] = useState(null)
-    const [ElementoColore, setElementoColore] = useState(null)
-
-    console.log(arrayAttributiFiltrati);
 
     return (
         <div className="size-color">
-            <span>Taglia</span>
-            {<ul className='size'>
-                {arrayAttributiFiltrati.map((item) => {
-
-                    return item.nomeAttributo === 'Size' && (<li className={`${(ElementoSize === item.name) ? 'selected' : ''}`} onClick={() => setElementoSize(item.name)}>{item.name}</li>)
-                }
-
-                )
-                }
-            </ul>}
-
-            {colori &&
-                <><span>Colore</span>
-                    <ul className='color'>
-                        {colori.map((item, index) => (
-                            <li style={{ backgroundColor: `${item}` }} className={`${(ElementoColore === item) ? 'selected' : ''}`} onClick={() => setElementoColore(item)}></li>))
+            {arrayAttributiFiltrati.filter((item) => item.name === 'One Size').length === 0 &&
+                <>
+                    <span>Taglia</span>
+                    <ul className='size'>
+                        {arrayAttributiFiltrati.map((item) => {
+                            return (item.attributeName === 'Size') && (
+                                <li
+                                    className={`${(ElementoSize === item.name) ? 'selected' : ''}`}
+                                    onClick={() => setElementoSize(item.name)}>{item.name}</li>)
                         }
-                    </ul></>}
+                        )
+                        }
+                    </ul>
+                </>
+            }
+            {arrayColori.length > 0 &&
+                <>
+                    <span>Colore</span>
+                    <ul className='color'>
+                        {arrayColori.map((item, index) => (
+                            <li style={{ backgroundColor: `${item.htmlColor}` }}
+                                className={`${(ElementoColore === item.htmlColor) ? 'selected' : ''}`}
+                                onClick={() => setElementoColore(item.htmlColor)}
+                                onMouseOver={()=>setTooltip(item.name)}
+                                onMouseLeave={()=>setTooltip('')}
+                            >
+                                <div className={`colore-tooltip ${item.name === tooltip && 'open'}`}>
+                                    {item.name}
+                                </div>
+                            </li>))
+                        }
+                    </ul>
+                </>}
         </div>
     )
 }

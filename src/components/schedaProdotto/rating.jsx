@@ -20,7 +20,7 @@ function Rating() {
 
         <div className="rating">
             <div className="star-rating">
-                <span>Rating</span>
+
                 <div className="wrap-stars">
                     <div className='box-rating-star'>
                         {
@@ -28,7 +28,6 @@ function Rating() {
                                 return (index > rate) ?
                                     <BsStar onClick={() => { setRate(index) }} /> :
                                     <BsFillStarFill onClick={() => { setRate(index) }} />
-
                             })
                         }
                     </div>

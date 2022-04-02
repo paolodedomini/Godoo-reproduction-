@@ -7,7 +7,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   const data = await graphql(`
     {
     odoo {
-      products(search: "", pageSize: 50) {
+      products(search: "", pageSize: 150) {
         products {
           id
           name
@@ -21,6 +21,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
             htmlColor
             id
             name
+            attributeName
             attributeId
           }
           price

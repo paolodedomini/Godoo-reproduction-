@@ -96,6 +96,7 @@ button.add-cart {
         margin-right: 10px;
         text-align: center;
         font-weight: bold;
+        border-radius: 20px;
 
         &.disabled {
             color: $ui-light-gray;
@@ -109,6 +110,7 @@ button.add-cart {
         height: 40px;
         line-height: 36px;
         font-weight: bold;
+        border-radius: 50%;
         cursor: pointer;
     }
 }
