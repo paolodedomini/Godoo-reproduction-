@@ -3,13 +3,17 @@ import SingleProduct from "./singleProduct"
 import QuickProduct from "./quickProduct"
 import { motion, AnimatePresence, AnimateSharedLayout } from "framer-motion"
 
-import { useEffect, useRef, useContext } from "react"
+import { useEffect, useRef, useContext, useState } from "react"
 import { ShareContext } from "../context/Context"
 
 const GrigliaProdotti = ({ prodotti, alberaturaCategoria, quick, setQuick }) => {
 
     const ref = useRef()
     const dataCart = useContext(ShareContext)
+    const [datiDefault, setDatiDefault] = useState([])
+
+  
+    
 
     function filtraProdotti(arrayItem, itemCategoria) {
 
@@ -33,7 +37,6 @@ const GrigliaProdotti = ({ prodotti, alberaturaCategoria, quick, setQuick }) => 
                     )
                 }))
             }
-
         })
 
         if (itemCategoria.corrente === 'All') {
@@ -41,7 +44,20 @@ const GrigliaProdotti = ({ prodotti, alberaturaCategoria, quick, setQuick }) => 
         }
         else { return filtered }
     }
+    
+    useEffect(() => {
+        const prod = prodotti.filter((item) => {
+            if (item.categories) {
+                return (item.categories.some((itemSub) => {
 
+                    return (itemSub.id === 13)
+                }))
+            }
+        })
+        setDatiDefault(prod)
+
+    },[])
+    console.log(datiDefault, 'dati');
     // Funzioni per gestire la chiusura del quickShop
 
     useEffect(() => {
@@ -64,18 +80,25 @@ const GrigliaProdotti = ({ prodotti, alberaturaCategoria, quick, setQuick }) => 
 
 
 
+
     return (
         <section className="wrapper-prodotti">
             <div className="categoria-corrente">{alberaturaCategoria.corrente}</div>
             <div className="griglia-prodotti">
-                {
+                {alberaturaCategoria.corrente !=='All' ?
                     filtraProdotti(prodotti, alberaturaCategoria).map((prodotto) => {
                         return (
                             <div className="box-preview-prodotto" key={prodotto.id}>
                                 <SingleProduct prodotto={prodotto} setQuick={setQuick} />
                             </div>
                         )
-                    })
+                    }) : datiDefault.map((prodotto) => {
+                        return (
+                            <div className="box-preview-prodotto" key={prodotto.id}>
+                                <SingleProduct prodotto={prodotto} setQuick={setQuick} />
+                            </div>
+                        )
+                    }) 
                 }
             </div>
 
@@ -113,7 +136,7 @@ const GrigliaProdotti = ({ prodotti, alberaturaCategoria, quick, setQuick }) => 
             </AnimatePresence>
             {quick.open &&
                 <div className="background-transparent">
-                   
+
                 </div>
             }
         </section>

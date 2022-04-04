@@ -6,7 +6,7 @@ const FiltriProdotto = ({ categorie, alberaturaCategoria, setAlberaturaCategoria
 
 
     const [ids, setIds] = React.useState()
-
+    
 
     function clickCategoria(categoriaPrincipale, categoriaIntermedia, categoria, id) {
         setAlberaturaCategoria({
@@ -26,22 +26,22 @@ const FiltriProdotto = ({ categorie, alberaturaCategoria, setAlberaturaCategoria
 
                 return (
                     <div key={categoria.id} >
-                        {(categoria.id === 13 ) &&
+                        {(categoria.id === 13) &&
                             <>
                                 <h3>{categoria.name}</h3>
                                 <ul>
-                                    {categoria.childs ?  categoria.childs.map((catIntermedia) => {
+                                    {categoria.childs ? categoria.childs.map((catIntermedia) => {
                                         return (
                                             <li key={catIntermedia.id}>
                                                 {catIntermedia.name}
-                                                <ul> 
+                                                <ul>
                                                     {catIntermedia ? catIntermedia.childs.map((item) => {
                                                         return <li key={item.id} onClick={() => clickCategoria(
-                                                            categoria.id, 
+                                                            categoria.id,
                                                             catIntermedia.id,
-                                                            item, 
-                                                            item.id,)}>
-                                                                {item.name}</li>
+                                                            item,
+                                                            item.id)}>
+                                                            {item.name}</li>
                                                     }) : null
                                                     }
                                                 </ul>

@@ -1,15 +1,18 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 
 function SizeColor({ taglie, colori, arrayAttributiFiltrati }) {
-    
+
     const arrayColori = arrayAttributiFiltrati.filter((item) => item.attributeName === 'Color')
-    
+
     const [ElementoSize, setElementoSize] = useState('36')
-    const [ElementoColore, setElementoColore] = useState(arrayColori[0].htmlColor)
+    const [ElementoColore, setElementoColore] = useState('')
     const [tooltip, setTooltip] = useState(null)
 
-
+    useEffect(()=>{
+        arrayColori.length > 0 && setElementoColore(arrayColori[0].htmlColor)
+    })
+    
     return (
         <div className="size-color">
             {arrayAttributiFiltrati.filter((item) => item.name === 'One Size').length === 0 &&
@@ -27,7 +30,7 @@ function SizeColor({ taglie, colori, arrayAttributiFiltrati }) {
                     </ul>
                 </>
             }
-            {arrayColori.length > 0 &&
+            {arrayColori  &&
                 <>
                     <span>Colore</span>
                     <ul className='color'>
@@ -35,8 +38,8 @@ function SizeColor({ taglie, colori, arrayAttributiFiltrati }) {
                             <li style={{ backgroundColor: `${item.htmlColor}` }}
                                 className={`${(ElementoColore === item.htmlColor) ? 'selected' : ''}`}
                                 onClick={() => setElementoColore(item.htmlColor)}
-                                onMouseOver={()=>setTooltip(item.name)}
-                                onMouseLeave={()=>setTooltip('')}
+                                onMouseOver={() => setTooltip(item.name)}
+                                onMouseLeave={() => setTooltip('')}
                             >
                                 <div className={`colore-tooltip ${item.name === tooltip && 'open'}`}>
                                     {item.name}

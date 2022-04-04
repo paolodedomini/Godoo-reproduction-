@@ -129,11 +129,17 @@ header {
             outline: 7px solid $ui-light-gray;
         }
 
-        .titolo {
+        .titolo a{
             font-weight: bold;
             font-size: 0.9rem;
             text-align: center;
             margin-top: 10px;
+            display: block;
+            color: $ui-black;
+            text-decoration: none;
+            &:hover{
+                text-decoration: underline;
+            }
         }
 
         .prezzo {

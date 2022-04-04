@@ -81,7 +81,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     }) 
     createPage({
       // will be the url for the page
-      path: 'schede/'+schedatitle,
+      path: 'prodotti/'+schedatitle,
       // specify the component template of your choice
       component: slash(schedaProdotto),
       // In the ^template's GraphQL query, 'id' will be available
