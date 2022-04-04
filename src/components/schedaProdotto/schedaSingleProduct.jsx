@@ -33,17 +33,17 @@ function SchedaSingleProduct({ data }) {
                 <Rating />
                 <div className="description">Lorem ipsum dolor sit amet consectetur, adipisicing elit.
                     Assumenda animi dignissimos consequatur atque iste nisi tempora deserunt commodi
-                    </div>
+                </div>
                 {/* {data.description && <div className="description">{data.description}</div>} */}
-                
-               
-                {arrayMateriali && 
-                <div className="materiali">
-                    <span>Materiali:</span>
-                    <ul>
-                        {arrayMateriali.map((item) => <li>{item.name}</li>)}
-                    </ul>
-                </div>}
+
+
+                {arrayMateriali &&
+                    <div className="materiali">
+                        <span>Materiali:</span>
+                        <ul>
+                            {arrayMateriali.map((item) => <li>{item.name}</li>)}
+                        </ul>
+                    </div>}
                 <div className="specifiche">
                     <ul>
                         {categoriaCorrenteProdotto && <li>Categoria: {categoriaCorrenteProdotto.name}</li>}
@@ -52,14 +52,16 @@ function SchedaSingleProduct({ data }) {
                 </div>
 
                 <SizeColor arrayAttributiFiltrati={data.attributeValues} colori={dataCart.colori} taglie={dataCart.taglie} />
-              
-                {data.sku && <div className="sku">{data.sku}</div>}
-                <div className="quantity">
-                    <InputQuantita quantita={quantita} setQuantita={setQuantita} />
-                </div>
 
-                <div className="add-to-cart-scheda">
-                    <button className='add-cart' disabled={quantita ? false : true} >Add to cart</button>
+                {data.sku && <div className="sku">{data.sku}</div>}
+                <div className="bottomscheda">
+                    <div className="quantity">
+                        <InputQuantita quantita={quantita} setQuantita={setQuantita} />
+                    </div>
+
+                    <div className="add-to-cart-scheda">
+                        <button className='add-cart' disabled={quantita ? false : true} >Add to cart</button>
+                    </div>
                 </div>
             </div>
         </div>

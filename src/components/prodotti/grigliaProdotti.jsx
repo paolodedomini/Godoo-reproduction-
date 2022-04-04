@@ -113,7 +113,7 @@ const GrigliaProdotti = ({ prodotti, alberaturaCategoria, quick, setQuick }) => 
             </AnimatePresence>
             {quick.open &&
                 <div className="background-transparent">
-                    suca
+                   
                 </div>
             }
         </section>

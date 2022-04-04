@@ -22,7 +22,7 @@ $ui-light-gray: #f6f6f6;
 $ui-gray: #d5d5d5;
 $ui-dark-gray: #2e2e2e;
 $ui-black: #181717;
-
+$ui-disabled: #b9b9b9;
 
 *{box-sizing: border-box;}
 
@@ -73,7 +73,7 @@ button.add-cart {
 
     &[disabled] {
         background-color: $ui-light-gray;
-        color: $ui-dark-gray;
+        color:$ui-disabled ;
         pointer-events: none;
     }
 }
@@ -99,13 +99,13 @@ button.add-cart {
         border-radius: 20px;
 
         &.disabled {
-            color: $ui-light-gray;
+            color: $ui-disabled;
         }
     }
 
-    span {
+    button {
         display: inline-block;
-        border: 1px solid $ui-gray;
+        border: 0px solid $ui-gray;
         width: 40px;
         height: 40px;
         line-height: 36px;

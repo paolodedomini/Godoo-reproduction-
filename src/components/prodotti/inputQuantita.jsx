@@ -14,9 +14,9 @@ const InputQuantita = ({ quantita, setQuantita }) => {
     }
     return (
         <div className="add-to-cart">
-            <span onClick={() => sub(1)}>-</span>
+            <button onClick={() => sub(1)}>-</button>
             <input className={`${quantita === 0 ? 'disabled' : ''}`} type="number" name="qta" id="qta" defaultValue="0" value={quantita} readOnly />
-            <span onClick={() => add(1)}>+</span>
+            <button onClick={() => add(1)}>+</button>
         </div>
     )
 
