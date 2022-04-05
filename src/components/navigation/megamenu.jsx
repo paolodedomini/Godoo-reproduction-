@@ -9,7 +9,7 @@ function Megamenu() {
             <div className="container">
                 <div className="item">
                     <div className="uomo">
-                        <Link to="#">
+                        <Link to="/prodotti/uomo">
                             <h2>uomo</h2>
                             <StaticImage
                                 src="../../images/man.jpg"

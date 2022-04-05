@@ -7,7 +7,7 @@ import FiltriProdotto from "../../components/prodotti/filtriProdotto"
 import "../../assets/scss/general.scss"
 import { useState } from "react"
 
-const Products = () => {
+const ProdottiDonna = () => {
   const data = useStaticQuery(graphql`
     query Prodotti {
       odoo {
@@ -79,6 +79,7 @@ const Products = () => {
             alberaturaCategoria={alberaturaCategoria}
             setAlberaturaCategoria={setAlberaturaCategoria}
             categorie={categorieProdotti}
+            categoriaGenere={13}
           />
           <GrigliaProdotti
             quick={quick}
@@ -86,6 +87,7 @@ const Products = () => {
             alberaturaCategoria={alberaturaCategoria}
             prodotti={dataProdotti}
             categorie={categorieProdotti} 
+            categoriaGenere={13}
           />
         </main>
      
@@ -93,4 +95,4 @@ const Products = () => {
   )
 }
 
-export default Products
+export default ProdottiDonna

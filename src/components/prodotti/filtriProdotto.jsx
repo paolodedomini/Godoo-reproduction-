@@ -1,7 +1,7 @@
 import * as React from "react"
 
 
-const FiltriProdotto = ({ categorie, alberaturaCategoria, setAlberaturaCategoria, setCategoriaPrincipale }) => {
+const FiltriProdotto = ({ categoriaGenere, categorie, alberaturaCategoria, setAlberaturaCategoria, setCategoriaPrincipale }) => {
 
 
 
@@ -26,7 +26,7 @@ const FiltriProdotto = ({ categorie, alberaturaCategoria, setAlberaturaCategoria
 
                 return (
                     <div key={categoria.id} >
-                        {(categoria.id === 13) &&
+                        {(categoria.id === categoriaGenere) &&
                             <>
                                 <h3>{categoria.name}</h3>
                                 <ul>
