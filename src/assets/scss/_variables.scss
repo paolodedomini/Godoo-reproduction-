@@ -33,6 +33,7 @@ html{
 body {
     font-size: 100%;
     font-family: $text;
+    margin: 0;
 }
 
 /* Chrome, Safari, Edge, Opera */
@@ -112,5 +113,10 @@ button.add-cart {
         font-weight: bold;
         border-radius: 50%;
         cursor: pointer;
+        transition: all ease-in-out 0.3s;
+        &:hover{
+            background-color: $ui-black;
+            color: white;
+          }
     }
 }

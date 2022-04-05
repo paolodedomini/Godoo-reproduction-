@@ -23,6 +23,7 @@ const ShareContextProvider = props => {
       }
     }
   `)
+  
 
 
   const [openCart, setOpenCart] = useState(false)
@@ -58,8 +59,6 @@ const ShareContextProvider = props => {
     setIdVariante: setIdVariante,
     quantita: quantita,
     setQuantita: setQuantita,
-    taglie: ['xs', 's', 'm', 'l', 'xl', 'xxl'],
-    colori: ['#6060c8', '#c8608d', '#66c860', '#eddaa0']
   }
 
   return (

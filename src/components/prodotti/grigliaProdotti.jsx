@@ -2,18 +2,17 @@ import * as React from "react"
 import SingleProduct from "./singleProduct"
 import QuickProduct from "./quickProduct"
 import { motion, AnimatePresence, AnimateSharedLayout } from "framer-motion"
-
 import { useEffect, useRef, useContext, useState } from "react"
 import { ShareContext } from "../context/Context"
-
-const GrigliaProdotti = ({ prodotti, alberaturaCategoria, quick, setQuick }) => {
+import BreadCrumb from "./breadCrumb"
+const GrigliaProdotti = ({ prodotti, alberaturaCategoria, quick, setQuick, categorie }) => {
 
     const ref = useRef()
     const dataCart = useContext(ShareContext)
     const [datiDefault, setDatiDefault] = useState([])
 
-  
-    
+
+
 
     function filtraProdotti(arrayItem, itemCategoria) {
 
@@ -44,7 +43,7 @@ const GrigliaProdotti = ({ prodotti, alberaturaCategoria, quick, setQuick }) => 
         }
         else { return filtered }
     }
-    
+
     useEffect(() => {
         const prod = prodotti.filter((item) => {
             if (item.categories) {
@@ -56,8 +55,10 @@ const GrigliaProdotti = ({ prodotti, alberaturaCategoria, quick, setQuick }) => 
         })
         setDatiDefault(prod)
 
-    },[])
-    console.log(datiDefault, 'dati');
+    }, [])
+
+    useEffect(() => { alberaturaCategoria.corrente = 'default' }, [])
+
     // Funzioni per gestire la chiusura del quickShop
 
     useEffect(() => {
@@ -77,15 +78,16 @@ const GrigliaProdotti = ({ prodotti, alberaturaCategoria, quick, setQuick }) => 
         }
     }, [quick.open])
 
-
+ 
 
 
 
     return (
         <section className="wrapper-prodotti">
-            <div className="categoria-corrente">{alberaturaCategoria.corrente}</div>
+
+            <BreadCrumb categorie = {categorie} alberaturaCategoria={alberaturaCategoria} />
             <div className="griglia-prodotti">
-                {alberaturaCategoria.corrente !=='All' ?
+                {alberaturaCategoria.corrente !== 'default' ?
                     filtraProdotti(prodotti, alberaturaCategoria).map((prodotto) => {
                         return (
                             <div className="box-preview-prodotto" key={prodotto.id}>
@@ -98,7 +100,7 @@ const GrigliaProdotti = ({ prodotti, alberaturaCategoria, quick, setQuick }) => 
                                 <SingleProduct prodotto={prodotto} setQuick={setQuick} />
                             </div>
                         )
-                    }) 
+                    })
                 }
             </div>
 

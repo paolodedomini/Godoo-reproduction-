@@ -1,10 +1,10 @@
 import * as React from "react"
 import { useStaticQuery, graphql } from "gatsby"
-import Layout from "../components/layout"
-import Seo from "../components/seo"
-import GrigliaProdotti from "../components/prodotti/grigliaProdotti"
-import FiltriProdotto from "../components/prodotti/filtriProdotto"
-import "../assets/scss/general.scss"
+import Layout from "../../components/layout"
+import Seo from "../../components/seo"
+import GrigliaProdotti from '../../components/prodotti/grigliaProdotti' 
+import FiltriProdotto from "../../components/prodotti/filtriProdotto"
+import "../../assets/scss/general.scss"
 import { useState } from "react"
 
 const Products = () => {
@@ -84,7 +84,9 @@ const Products = () => {
             quick={quick}
             setQuick={setQuick}
             alberaturaCategoria={alberaturaCategoria}
-            prodotti={dataProdotti} />
+            prodotti={dataProdotti}
+            categorie={categorieProdotti} 
+          />
         </main>
      
     </Layout>

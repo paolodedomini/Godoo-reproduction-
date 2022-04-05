@@ -9,10 +9,10 @@ function SizeColor({ taglie, colori, arrayAttributiFiltrati }) {
     const [ElementoColore, setElementoColore] = useState('')
     const [tooltip, setTooltip] = useState(null)
 
-    useEffect(()=>{
+    useEffect(() => {
         arrayColori.length > 0 && setElementoColore(arrayColori[0].htmlColor)
     })
-    
+
     return (
         <div className="size-color">
             {arrayAttributiFiltrati.filter((item) => item.name === 'One Size').length === 0 &&
@@ -24,13 +24,13 @@ function SizeColor({ taglie, colori, arrayAttributiFiltrati }) {
                                 <li
                                     className={`${(ElementoSize === item.name) ? 'selected' : ''}`}
                                     onClick={() => setElementoSize(item.name)}>{item.name}</li>)
-                        }
-                        )
+                                }
+                            )
                         }
                     </ul>
                 </>
             }
-            {arrayColori  &&
+            {arrayColori.length !== 0 &&
                 <>
                     <span>Colore</span>
                     <ul className='color'>
