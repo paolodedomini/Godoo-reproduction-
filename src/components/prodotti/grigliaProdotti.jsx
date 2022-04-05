@@ -57,7 +57,7 @@ const GrigliaProdotti = ({ prodotti, alberaturaCategoria, quick, setQuick, categ
 
     }, [])
 
-    useEffect(() => { alberaturaCategoria.corrente = 'default' }, [])
+  
 
     // Funzioni per gestire la chiusura del quickShop
 

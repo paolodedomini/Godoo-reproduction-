@@ -1,0 +1,47 @@
+@import "../../assets/scss/variables";
+
+.mega-menu {
+  visibility: hidden;
+  opacity: 0;
+  transition: all ease-in-out 0.3s;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  width: 710px;
+  padding-bottom: 20px;
+  z-index: 100;
+
+  h3 {
+    color:$ui-black;
+  }
+
+  .container {
+    display: flex;
+    background-color: white;
+    max-width: 710px;
+    margin: 0 auto;
+    padding: 1rem;
+    box-shadow: 0px 3px 5px #e7e7e7;
+    border-top: 2px solid;
+  }
+  .item {
+    flex-grow: 1;
+    margin: 0 10px;
+    display: flex;
+    justify-content: space-around;
+  }
+  .item img {
+    width: 100%;
+  }
+  a {
+
+    color: $ui-black;
+    display: block;
+    padding: 10px 0;
+  }
+  a:hover {
+    color: $ui-black;
+  }
+}

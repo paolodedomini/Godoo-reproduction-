@@ -28,13 +28,13 @@ const Layout = ({ children }) => {
   return (
     <>
       <ShareContextProvider>
-        <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
         <div className="main-container">
+          <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
           {children}
           <footer>
             <a href="https://www.gatsbyjs.com">Gatsby</a>
           </footer>
-          <CartDrawer/>
+          <CartDrawer />
         </div>
       </ShareContextProvider>
     </>

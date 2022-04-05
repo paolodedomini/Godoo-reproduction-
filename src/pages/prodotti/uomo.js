@@ -9,7 +9,7 @@ import { useState } from "react"
 
 const Products = () => {
   const data = useStaticQuery(graphql`
-    query Prodotti {
+    query ProdottiUomo {
       odoo {
         products(search: "", pageSize: 50) {
           products {

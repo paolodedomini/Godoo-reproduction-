@@ -7,7 +7,13 @@ html {
   box-sizing: border-box;
   overflow-y: scroll;
 }
-
+a{
+  color: $ui-black;
+  text-decoration: none;
+  &:hover{
+    color: $ui-black;
+  }
+}
 li {
   margin-bottom: calc(1.45rem / 2);
 }
@@ -40,11 +46,12 @@ header {
 .main-container {
   max-width: 1620px;
   margin: 0 auto;
+  box-shadow: 0 0 5px #e6e6e6;
 }
 
 .page-products {
   display: flex;
-
+  padding: 0 40px;
   ul {
     list-style: none;
 
@@ -64,6 +71,24 @@ header {
     display: inline-block;
     padding: 2px 12px;
     font-size: 1rem;
+    ul {
+      li {
+        display: inline-block;
+        margin: 5px;
+        font-size: 15px;
+        text-transform: lowercase;
+        &:first-child{
+          margin-right: 0;
+          &::after{
+            content:'>';
+            position: relative;
+            display: inline-block;
+            vertical-align: middle;
+            margin-left: 5px;
+          }
+        }
+      }
+    }
   }
 
   section.wrapper-prodotti {

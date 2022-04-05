@@ -19,7 +19,7 @@ function SchedaSingleProduct({ data }) {
     const arrayMateriali = data.attributeValues.filter((item) => item.attributeName === 'Material')
 
 
-    // console.log(arrayAttributiFiltrati);
+
     return (
         <div className="wrapper-scheda">
             <div className="box-image animated fadeIn">

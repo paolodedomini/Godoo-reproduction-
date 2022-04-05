@@ -3,10 +3,10 @@ nav {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  max-width: 1620px;
   width: 100%;
   margin: 0 auto;
   margin-bottom: 1rem;
+  padding: 0 20px;
   ul {
     display: flex;
     li {
@@ -39,6 +39,7 @@ nav {
   margin-top: 0;
   color: white;
   padding: 0.5rem 0.5rem;
+  font-size: 13px;
   ul.social {
     margin-left: 2rem;
     li {
@@ -88,5 +89,16 @@ nav {
   text-transform: uppercase;
   padding: 8px;
   font-weight: 100;
-  border: 4px solid;
+  border: 4px solid #000000;
+  color: $ui-black;
+  
+}
+.dropdown {
+    position: static;
+
+}
+
+.dropdown:hover .mega-menu {
+    visibility: visible;
+    opacity: 1;
 }
