@@ -27,9 +27,9 @@ function SchedaSingleProduct({ data }) {
             </div>
             <div className="data-box animated fadeInDown">
                 <div className="title">{data.name}</div>
-                <div className="price">
+               {data.price && <div className="price">
                     €{data.price}
-                </div>
+                </div>}
                 <Rating />
                 <div className="description">Lorem ipsum dolor sit amet consectetur, adipisicing elit.
                     Assumenda animi dignissimos consequatur atque iste nisi tempora deserunt commodi

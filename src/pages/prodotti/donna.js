@@ -5,6 +5,7 @@ import Seo from "../../components/seo"
 import GrigliaProdotti from '../../components/prodotti/grigliaProdotti' 
 import FiltriProdotto from "../../components/prodotti/filtriProdotto"
 import "../../assets/scss/general.scss"
+import '../../components/prodotti/prodotti.scss'
 import { useState } from "react"
 
 const ProdottiDonna = () => {
@@ -89,6 +90,7 @@ const ProdottiDonna = () => {
             categorie={categorieProdotti} 
             categoriaGenere={13}
           />
+          
         </main>
      
     </Layout>

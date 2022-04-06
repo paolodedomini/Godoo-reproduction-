@@ -15,7 +15,7 @@ function Megamenu() {
                                 src="../../images/man.jpg"
                                 width={300}
                                 quality={95}
-                                formats={["auto", "webp", "avif"]}
+                                formats={["webp"]}
                                 alt="A Gatsby astronaut"
                                 style={{ marginBottom: `1.45rem` }}
                             />

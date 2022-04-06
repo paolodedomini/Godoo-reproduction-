@@ -1,0 +1,222 @@
+@import '../../assets/scss/variables';
+
+.correlati {
+    display: flex;
+    max-width: 770px;
+    margin: 2rem auto;
+    flex-wrap: wrap;
+    .title {
+        font-size: 1.5rem;
+        margin-bottom: 0rem;
+        font-weight: normal;
+        width: 100%;
+        text-align: center;
+    }
+    .box-preview-prodotto{
+        flex-basis: 220px;
+    }
+}
+
+
+.box-preview-prodotto {
+    flex: 0 0 280px;
+    margin: 1rem 1rem 2rem 1rem;
+    transition: all ease-in-out 0.3s;
+    outline: 0px solid transparent;
+    padding: 1rem;
+  
+    &:hover {
+      outline: 7px solid $ui-light-gray;
+    }
+  
+    .titolo a {
+      font-weight: bold;
+      font-size: 0.9rem;
+      text-align: center;
+      margin-top: 10px;
+      display: block;
+      color: $ui-black;
+      text-decoration: none;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  
+    .prezzo {
+      text-align: center;
+      font-size: 1rem;
+    }
+  
+    .wrapper-img {
+      position: relative;
+  
+      &:hover {
+        .quick-shop-button {
+          opacity: 1;
+          position: absolute;
+          bottom: 5px;
+          right: 0;
+          left: 0;
+          margin: 0 auto;
+          width: 107px;
+          text-align: center;
+          border-radius: 20px;
+          background-color: #f6f6f6;
+          padding: 6px 0;
+          font-size: 0.8rem;
+          font-weight: bold;
+          cursor: pointer;
+        }
+      }
+    }
+  
+    .quick-shop-button {
+      position: absolute;
+      opacity: 0;
+      bottom: 15px;
+      right: 0;
+      left: 0;
+      margin: 0 auto;
+      width: 107px;
+      text-align: center;
+      border-radius: 20px;
+      background-color: #f6f6f6;
+      padding: 6px 0;
+      font-size: 0.8rem;
+      font-weight: bold;
+      transition: all ease-in-out 0.3s;
+    }
+  
+    .gatsby-image-wrapper.gatsby-image-wrapper-constrained {
+      max-width: 80%;
+      display: block;
+      margin: 0 auto;
+    }
+  }
+
+
+  .page-products {
+    display: flex;
+    padding: 0 40px;
+    ul {
+      list-style: none;
+  
+      li {
+        font-size: 1.2rem;
+        ul {
+          li {
+            font-size: 0.9rem;
+            line-height: 1rem;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  
+    .categoria-corrente {
+      display: inline-block;
+      padding: 2px 12px;
+      font-size: 1rem;
+      ul {
+        li {
+          display: inline-block;
+          margin: 5px;
+          font-size: 15px;
+          text-transform: lowercase;
+          &:first-child{
+            margin-right: 0;
+            &::after{
+              content:'>';
+              position: relative;
+              display: inline-block;
+              vertical-align: middle;
+              margin-left: 5px;
+            }
+          }
+        }
+      }
+    }
+  
+    section.wrapper-prodotti {
+      margin-left: 5%;
+  
+      .background-transparent {
+        height: 100%;
+        position: fixed;
+        background-color: #0000006e;
+        width: 100%;
+        top: 0;
+        left: 0;
+        z-index: 0;
+      }
+    }
+  
+    .griglia-prodotti {
+      display: flex;
+      flex-wrap: wrap;
+    }
+  
+    .quick-shop {
+      position: fixed;
+      top: 20%;
+      background: white;
+      padding: 1rem;
+      left: 0;
+      right: 0;
+      margin-left: auto;
+      margin-right: auto;
+      width: 380px;
+      box-shadow: 11px 11px 1px #0000001c;
+      border: 6px solid $ui-dark-gray;
+      z-index: 100;
+  
+      .titolo {
+        font-weight: bold;
+        font-size: 0.9rem;
+        text-align: center;
+        margin-top: 5px;
+      }
+  
+      .prezzo {
+        text-align: center;
+        margin-top: 5px;
+      }
+  
+      .gatsby-image-wrapper.gatsby-image-wrapper-constrained {
+        max-width: 200px;
+        display: block;
+        margin: 0 auto;
+      }
+    }
+  
+  
+  
+    .wrapper-varianti {
+      margin: 1rem 0;
+      text-align: center;
+  
+      label {
+        width: 10px;
+        height: 10px;
+        margin: 3px;
+  
+        span.checkmark {
+          height: 20px;
+          width: 20px;
+          border-radius: 50%;
+          background-color: $ui-dark-gray;
+          border: 2px solid $ui-gray;
+          display: inline-block;
+        }
+  
+        input {
+          display: none;
+  
+          &:checked ~ span.checkmark {
+            border: 2px solid $ui-black;
+          }
+        }
+      }
+    }
+  }
+  

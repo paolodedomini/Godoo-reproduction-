@@ -5,13 +5,14 @@ import Seo from "../../components/seo"
 import GrigliaProdotti from '../../components/prodotti/grigliaProdotti' 
 import FiltriProdotto from "../../components/prodotti/filtriProdotto"
 import "../../assets/scss/general.scss"
+import '../../components/prodotti/prodotti.scss'
 import { useState } from "react"
 
 const ProdottiUomo = () => {
   const data = useStaticQuery(graphql`
     query ProdottiUomo {
       odoo {
-        products(search: "", pageSize: 50) {
+        products(search: "", pageSize: 100) {
           products {
             id
             name
@@ -66,7 +67,7 @@ const ProdottiUomo = () => {
   `)
   const dataProdotti = data.odoo.products.products
   const categorieProdotti = data.odoo.categories.categories
-  
+  console.log(dataProdotti);
   const [alberaturaCategoria, setAlberaturaCategoria] = React.useState({})
   const [quick, setQuick] = useState({ open: false })
   

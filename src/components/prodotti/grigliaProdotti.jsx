@@ -5,13 +5,15 @@ import { motion, AnimatePresence, AnimateSharedLayout } from "framer-motion"
 import { useEffect, useRef, useContext, useState } from "react"
 import { ShareContext } from "../context/Context"
 import BreadCrumb from "./breadCrumb"
-const GrigliaProdotti = ({categoriaGenere, prodotti, alberaturaCategoria, quick, setQuick, categorie }) => {
+import './prodotti.scss'
 
+const GrigliaProdotti = ({categoriaGenere, prodotti, alberaturaCategoria, quick, setQuick, categorie }) => 
+
+{
     const ref = useRef()
     const dataCart = useContext(ShareContext)
     const [datiDefault, setDatiDefault] = useState([])
-    console.log(alberaturaCategoria, 'itemcategoria');
-    console.log(prodotti, 'arrayitem');
+ 
     function filtraProdotti(arrayItem, itemCategoria) {
 
         // filtra per id i prodotti in "arrayItem"
@@ -29,8 +31,9 @@ const GrigliaProdotti = ({categoriaGenere, prodotti, alberaturaCategoria, quick,
 
         const filteredAll = arrayItem.filter((item) => {
             if (item.categories) {
-                return (item.categories.some((itemSub) => {
-                    return (item.categories[1] && itemCategoria.idCorrente === item.categories[1].id
+                return (item.categories.some(() => {
+                    return (item.categories[1] && 
+                        itemCategoria.idCorrente === item.categories[1].id
                     )
                 }))
             }
