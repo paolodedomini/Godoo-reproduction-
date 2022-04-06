@@ -23,7 +23,7 @@ const CartButton = ({ dataCart }) => {
                     {animation && <motion.div layout
                         className="icon-cart-wrapper"
                         initial={{ position: 'absolute', opacity: 0, left: -200 }}
-                        animate={{ position: 'absolute', opacity: 1, left: '25%' }}
+                        animate={{ position: 'absolute', opacity: 1, left: '15px' }}
                         exit={{ position: 'absolute', opacity: 0, left: -200 }}
                         transition={{ duration: 0.7 }}
                     >

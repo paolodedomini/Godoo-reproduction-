@@ -4,6 +4,7 @@
 @import "@fontsource/open-sans/300.css";
 @import "@fontsource/open-sans/400.css";
 @import "@fontsource/open-sans/700.css";
+@import "@fontsource/dancing-script/400.css";
 
 $phone: "only screen and (max-width : 460px)";
 $tablet: "only screen and (max-width : 720px)";
@@ -16,6 +17,7 @@ $big: "only screen and (max-width : 1900px)";
 $text: "open sans", sans-serif;
 $link: "open sans", sans-serif;
 $title: "poppins", sans-serif;
+$titleJumbo: "Dancing Script", cursive;
 
 /* colori */
 $ui-light-gray: #f6f6f6;
@@ -23,100 +25,3 @@ $ui-gray: #d5d5d5;
 $ui-dark-gray: #2e2e2e;
 $ui-black: #181717;
 $ui-disabled: #b9b9b9;
-
-*{box-sizing: border-box;}
-
-html{
-    font-size: 16px;
-}
-
-body {
-    font-size: 100%;
-    font-family: $text;
-    margin: 0;
-}
-
-/* Chrome, Safari, Edge, Opera */
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-}
-
-/* Firefox */
-input[type="number"] {
-    -moz-appearance: textfield;
-}
-
-h1,
-h2,
-h3,
-.titolo {
-    font-family: "poppins";
-}
-
-ul {
-    padding: 0;
-    margin: 0;
-    li {
-        list-style: none;
-    }
-}
-
-button.add-cart {
-    border: none;
-    margin-top: 1rem;
-    width: 100%;
-    padding: 0.6rem;
-    cursor: pointer;
-    background-color: $ui-dark-gray;
-    color: white;
-
-    &[disabled] {
-        background-color: $ui-light-gray;
-        color:$ui-disabled ;
-        pointer-events: none;
-    }
-}
-
-.add-to-cart {
-    text-align: center;
-    margin-top: 0rem;
-
-    input {
-        width: 50px;
-        height: 40px;
-        border-radius: 0;
-        outline: 0;
-        border: 0;
-        background: $ui-gray;
-        display: inline-block;
-        border: 1px solid $ui-gray;
-        vertical-align: bottom;
-        margin-left: 10px;
-        margin-right: 10px;
-        text-align: center;
-        font-weight: bold;
-        border-radius: 20px;
-
-        &.disabled {
-            color: $ui-disabled;
-        }
-    }
-
-    button {
-        display: inline-block;
-        border: 0px solid $ui-gray;
-        width: 40px;
-        height: 40px;
-        line-height: 36px;
-        font-weight: bold;
-        border-radius: 50%;
-        cursor: pointer;
-        transition: all ease-in-out 0.3s;
-        &:hover{
-            background-color: $ui-black;
-            color: white;
-          }
-    }
-}

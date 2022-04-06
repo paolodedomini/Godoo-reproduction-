@@ -35,10 +35,10 @@ function Navbar({ dataCart }) {
                     <li><Link to="#">Contatti</Link></li>
 
                 </ul>
-
+{dataCart &&
                 <AnimateSharedLayout>
                     <CartButton dataCart={dataCart} />
-                </AnimateSharedLayout>
+                </AnimateSharedLayout>}
 
             </nav>
         </>

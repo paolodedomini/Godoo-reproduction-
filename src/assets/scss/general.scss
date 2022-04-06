@@ -1,12 +1,109 @@
 @import "./variables";
+@import "../../assets/scss/animate-sass-master/animate";
 
-html {
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  font: 100% georgia, serif, sans-serif;
-  box-sizing: border-box;
-  overflow-y: scroll;
+
+*{box-sizing: border-box;}
+
+html{
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    font: 100% georgia, serif, sans-serif;
+    box-sizing: border-box;
+    overflow-y: scroll;
 }
+
+body {
+    font-size: 100%;
+    font-family: $text;
+    margin: 0;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+h1,
+h2,
+h3,
+.titolo {
+    font-family: "poppins";
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+    li {
+        list-style: none;
+    }
+}
+
+button.add-cart {
+    border: none;
+    margin-top: 1rem;
+    width: 100%;
+    padding: 0.6rem;
+    cursor: pointer;
+    background-color: $ui-dark-gray;
+    color: white;
+
+    &[disabled] {
+        background-color: $ui-light-gray;
+        color:$ui-disabled ;
+        pointer-events: none;
+    }
+}
+
+.add-to-cart {
+    text-align: center;
+    margin-top: 0rem;
+
+    input {
+        width: 50px;
+        height: 40px;
+        border-radius: 0;
+        outline: 0;
+        border: 0;
+        background: $ui-gray;
+        display: inline-block;
+        border: 1px solid $ui-gray;
+        vertical-align: bottom;
+        margin-left: 10px;
+        margin-right: 10px;
+        text-align: center;
+        font-weight: bold;
+        border-radius: 20px;
+
+        &.disabled {
+            color: $ui-disabled;
+        }
+    }
+
+    button {
+        display: inline-block;
+        border: 0px solid $ui-gray;
+        width: 40px;
+        height: 40px;
+        line-height: 36px;
+        font-weight: bold;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: all ease-in-out 0.3s;
+        &:hover{
+            background-color: $ui-black;
+            color: white;
+          }
+    }
+}
+
+
 a{
   color: $ui-black;
   text-decoration: none;
@@ -40,7 +137,7 @@ header {
   display: flex;
   justify-content: space-between;
   flex-direction: column;
-  margin-bottom: 2rem;
+
 }
 
 .main-container {
