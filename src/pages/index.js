@@ -4,6 +4,8 @@ import { StaticImage } from "gatsby-plugin-image"
 import Jumbo from "../components/home/jumbo"
 import Layout from "../components/layout"
 import CenterHome from "../components/home/centerHome"
+import ProdottiHome from "../components/home/prodottiHome"
+import CategorieHome from "../components/home/categorie"
 import Seo from "../components/seo"
 
 const IndexPage = () => (
@@ -11,6 +13,8 @@ const IndexPage = () => (
     <Seo title="Home" />
     <Jumbo />
     <CenterHome />
+    <ProdottiHome />
+    <CategorieHome />
   </Layout>
 )
 

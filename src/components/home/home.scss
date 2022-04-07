@@ -21,6 +21,26 @@
             background-color: black;
             color: white;
             padding: 2px;
+            text-transform: uppercase;
+            font-size: 1.8rem;
+            letter-spacing: 3px;
+        }
+
+        a {
+            display: block;
+            font-family: "Dancing Script", cursive;
+            font-weight: bold;
+            border: 6px solid;
+            padding: 10px;
+            width: 300px;
+            text-align: center;
+            margin: 1rem 0 auto auto;
+            transition: all ease-in-out 0.3s;
+            transform: rotate(-3deg);
+
+            &:hover {
+                transform: rotate(0deg);
+            }
         }
     }
 }
@@ -29,7 +49,6 @@
     display: flex;
     flex-wrap: wrap;
 
-
     .center-home__sx, .center-home__dx {
         padding: 20px;
         position: relative;
@@ -37,6 +56,7 @@
         display: flex;
         justify-content: center;
         align-items: flex-end;
+
         .center-home__box-text {
             font-family: $text;
             font-size: 1rem;
@@ -48,10 +68,64 @@
             background-color: #000000d1;
             color: white;
             margin-bottom: 10%;
-            text-transform: uppercase;       
+            text-transform: uppercase;
+        }
+    }
+
+    .center-home__sx {
+        padding-right: 10px;
+    }
+
+    .center-home__dx {
+        padding-left: 10px;
+    }
+}
+
+section.selezioneProdottiHome {
+    display: flex;
+
+    .box-preview-prodotto {
+        flex: 1 1 280px;
+
+        .gatsby-image-wrapper.gatsby-image-wrapper-constrained {
+            max-width: 280px;
+        }
+    }
+}
+
+section.categorie-home {
+    display: flex;
+
+    .categoria {
+        padding: 10px;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        transition: all ease-in-out 0.3s;
+        .box-text {
+            font-family: $text;
+            font-size: 1rem;
+            letter-spacing: 3px;
+            font-weight: bold;
+            position: absolute;
+            padding: 40px;
+            text-align: center;
+            background-color: #000000d1;
+            color: white;
+            text-transform: uppercase;
+            bottom: 10%;
+            opacity: 0;
+            
+
+
         }
 
+        &:hover {
+            .box-text{
+                transition: all ease-in-out 0.3s;
+                opacity: 1;
+            }
+        }
     }
-    .center-home__sx{padding-right: 10px;} 
-    .center-home__dx{padding-left: 10px;}
 }

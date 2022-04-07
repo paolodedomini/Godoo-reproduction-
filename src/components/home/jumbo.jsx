@@ -20,6 +20,7 @@ function Jumbo() {
                     Un fottio <br />
                     Di animaletti un po' matti
                 </mark>
+                <a href="#">Scopri la collezione</a>
             </div>
         </section>
     )

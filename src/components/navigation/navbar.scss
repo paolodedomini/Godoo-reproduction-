@@ -96,13 +96,15 @@ nav {
   &:hover{
     transform: rotate(-3deg);
   }
-}
-.dropdown {
+} 
+
+.dropdown { 
     position: static;
 
 }
 
 .dropdown:hover .mega-menu {
+    z-index: 100;
     visibility: visible;
     opacity: 1;
 }
