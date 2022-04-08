@@ -108,6 +108,9 @@
             font-size: 0.9rem;
             line-height: 1rem;
             cursor: pointer;
+            &.active{
+              font-weight: bold;
+            }
           }
         }
       }

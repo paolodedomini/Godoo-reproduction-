@@ -1,22 +1,22 @@
 import * as React from "react"
 const InputQuantita = ({ quantita, setQuantita }) => {
 
-    function add(qta) {
-        setQuantita(quantita + qta)
+    function add() {
+        setQuantita((prevQuantita)=>prevQuantita + 1)
     }
 
-    function sub(qta) {
+    function sub() {
         if (quantita == 0) {
             setQuantita(0)
         } else {
-            setQuantita(quantita - qta)
+            setQuantita((prevQuantita)=>prevQuantita - 1)
         }
     }
     return (
         <div className="add-to-cart">
-            <button onClick={() => sub(1)}>-</button>
+            <button onClick={() => sub()}>-</button>
             <input className={`${quantita === 0 ? 'disabled' : ''}`} type="number" name="qta" id="qta" defaultValue="0" value={quantita} readOnly />
-            <button onClick={() => add(1)}>+</button>
+            <button onClick={() => add()}>+</button>
         </div>
     )
 

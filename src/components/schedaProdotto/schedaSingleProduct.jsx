@@ -47,13 +47,12 @@ function SchedaSingleProduct({ data }) {
                 <div className="specifiche">
                     <ul>
                         {categoriaCorrenteProdotto && <li>Categoria: {categoriaCorrenteProdotto.name}</li>}
-                        {data.sku && <li>  SKU: {categoriaCorrenteProdotto.name}</li>}
+                        {data.sku && <li>  SKU: data.sku</li>}
                     </ul>
                 </div>
 
                 <SizeColor arrayAttributiFiltrati={data.attributeValues} colori={dataCart.colori} taglie={dataCart.taglie} />
 
-                {data.sku && <div className="sku">{data.sku}</div>}
                 <div className="bottomscheda">
                     <div className="quantity">
                         <InputQuantita quantita={quantita} setQuantita={setQuantita} />

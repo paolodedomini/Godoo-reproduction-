@@ -15,9 +15,7 @@ const GrigliaProdotti = ({categoriaGenere, prodotti, alberaturaCategoria, quick,
     const [datiDefault, setDatiDefault] = useState([])
  
     function filtraProdotti(arrayItem, itemCategoria) {
-
         // filtra per id i prodotti in "arrayItem"
-
         const filtered = arrayItem.filter((item) => {
             if (item.categories) {
                 return (item.categories.some((itemSub) => {

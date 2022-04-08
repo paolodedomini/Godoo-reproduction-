@@ -67,7 +67,7 @@ const ProdottiUomo = () => {
   `)
   const dataProdotti = data.odoo.products.products
   const categorieProdotti = data.odoo.categories.categories
-  console.log(dataProdotti);
+ 
   const [alberaturaCategoria, setAlberaturaCategoria] = React.useState({})
   const [quick, setQuick] = useState({ open: false })
   

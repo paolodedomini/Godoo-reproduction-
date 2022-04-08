@@ -33,7 +33,7 @@ function SchedaProdotto(props) {
     return (
     <Layout>  
       <SchedaSingleProduct data = {dataProdotto} />
-      <Correlati categorieProdotto = {categorieProdotto} ArrayProdottiAnteprime = {ArrayProdottiAnteprime}/>
+     {categorieProdotto && <Correlati categorieProdotto = {categorieProdotto} ArrayProdottiAnteprime = {ArrayProdottiAnteprime}/>}
     </Layout>
     
   )

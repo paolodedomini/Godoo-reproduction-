@@ -8,7 +8,7 @@ function Correlati({ categorieProdotto, ArrayProdottiAnteprime }) {
     const prodottiCorrelatiCategoria = () => {
         return prodotti.filter((item) => (item.categories && item.categories[categorieProdotto.length - 1]) && item.categories[categorieProdotto.length - 1].name === categoriaCorrente.name)
     }
-console.log(prodottiCorrelatiCategoria);
+
 
 
     return (

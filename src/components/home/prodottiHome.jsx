@@ -43,9 +43,10 @@ function ProdottiHome() {
     prodottiUniciPerCategoria[Math.floor(Math.random() * prodottiUniciPerCategoria.length)],
     prodottiUniciPerCategoria[Math.floor(Math.random() * prodottiUniciPerCategoria.length)],
   ]
-  console.log(randomProdottiArray);
+  
   return (
     <section className="selezioneProdottiHome">
+      <h2>...Scelti per te...</h2>
       {randomProdottiArray.map((prodotto) => {
 
         return (<div className="box-preview-prodotto" key={prodotto.id}>

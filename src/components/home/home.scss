@@ -83,7 +83,12 @@
 
 section.selezioneProdottiHome {
     display: flex;
-
+    flex-wrap: wrap;
+h2{flex-basis: 100%;
+    text-align: center;
+    font-family: $titleJumbo;
+    font-size: 3rem;
+}
     .box-preview-prodotto {
         flex: 1 1 280px;
 
@@ -116,16 +121,17 @@ section.categorie-home {
             text-transform: uppercase;
             bottom: 10%;
             opacity: 0;
-            
-
-
         }
-
+        .gatsby-image-wrapper{
+            transition: all ease 0.3s;
+        }
         &:hover {
             .box-text{
                 transition: all ease-in-out 0.3s;
                 opacity: 1;
             }
+            .gatsby-image-wrapper {
+             transform: scale(0.95);}
         }
     }
 }
