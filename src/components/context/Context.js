@@ -1,4 +1,4 @@
-import React, { createContext, useState, useEffect } from "react"
+import React, { createContext, useState } from "react"
 import { useStaticQuery, graphql } from "gatsby"
 const defaultState = {}
 
@@ -27,9 +27,9 @@ const ShareContextProvider = props => {
 
 
   const [openCart, setOpenCart] = useState(false)
-  const [dataCart, setDataCart] = useState([{}])
+  const [dataCart, setDataCart] = useState({})
   const [idVariante, setIdVariante] = useState(0)
-  const [quantita, setQuantita] = useState(0)
+  const [quantita, setQuantita] = React.useState(0)
 
   const arrayAttributi = dataProdotti.odoo.products.attributes
 
@@ -53,12 +53,12 @@ const ShareContextProvider = props => {
     attributiPerTipo: attributiPerTipo,
     setOpenCart: setOpenCart,
     openCart: openCart,
-    dataCart: [...dataCart],
+    dataCart: dataCart,
     setDataCart: setDataCart,
     idVariante: idVariante,
     setIdVariante: setIdVariante,
-    setQuantita:setQuantita,
-    quantita: quantita
+    quantita: quantita,
+    setQuantita: setQuantita,
   }
 
   return (

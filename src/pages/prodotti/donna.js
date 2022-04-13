@@ -12,7 +12,7 @@ const ProdottiDonna = () => {
   const data = useStaticQuery(graphql`
     query Prodotti {
       odoo {
-        products(search: "", pageSize: 150) {
+        products(search: "", pageSize: 50) {
           products {
             id
             name

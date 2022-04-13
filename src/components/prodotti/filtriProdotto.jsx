@@ -40,9 +40,7 @@ const FiltriProdotto = ({ categoriaGenere, categorie, alberaturaCategoria, setAl
                                                             categoria.id,
                                                             catIntermedia.id,
                                                             item,
-                                                            item.id)}
-                                                            className={`${item.id === alberaturaCategoria.idCorrente ? 'active': ''}`  }
-                                                            >
+                                                            item.id)}>
                                                             {item.name}</li>
                                                     }) : null
                                                     }
